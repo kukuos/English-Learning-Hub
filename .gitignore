@@ -13,3 +13,6 @@ node_modules/
 # 本地临时文件
 tmp/
 *.tmp
+
+# Pages 构建产物
+_site/

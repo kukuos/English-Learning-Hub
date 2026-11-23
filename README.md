@@ -18,6 +18,16 @@
 | 打卡表 `LOGS_DB` | `<LOGS_DB_ID>`（英语打卡记录） |
 | 已解绑旧表 | `<OLD_LOGS_DB_ID>`（英语学习日志·旧表，可删除） |
 
+> **真实表 ID 只存私有环境**：本仓库是公开仓库，README 与 `data/*.schema.json` 中的表 ID 已替换为占位符，真实 ID 只保存在私有环境（`private/backend.js`）。请勿把真实 ID 写回本文档。
+
+### 在线访问（GitHub Pages）
+
+GitHub Pages 上有部署好的**只读演示版**，打开即可浏览界面与示例数据；写操作只在当前页面会话内生效，刷新即还原，不会写入资料库：
+
+- https://kukuos.github.io/English-Learning-Hub/
+
+需要真实读写与打卡，请使用上表的 WorkBuddy 公开链接。演示版由 `.github/workflows/pages.yml` 在每次推送 `main` 时自动构建。
+
 ---
 
 ## 2. 目录结构
@@ -34,10 +44,15 @@ English/
 ├── private/                       ← 私有源码，永不出现在公开产物里
 │   ├── backend.js                  ← 后端 9 个 Tool 的实现（ESM）
 │   └── workbench.json              ← Tool 描述与 JSON Schema（1–64 个 Tool）
-└── data/                          ← 只读快照，方便理解数据，不要当数据源改
-    ├── cards.schema.json           ← 卡片表结构
-    ├── logs.schema.json            ← 打卡表结构
-    └── cards.csv                   ← 54 张卡片当前内容
+├── data/                          ← 只读快照，方便理解数据，不要当数据源改
+│   ├── cards.schema.json           ← 卡片表结构
+│   ├── logs.schema.json            ← 打卡表结构
+│   └── cards.csv                   ← 54 张卡片当前内容
+├── tools/                         ← 构建脚本
+│   └── build-pages.mjs             ← 生成 Pages 演示版（注入内嵌示例数据桩）
+└── .github/
+    └── workflows/
+        └── pages.yml               ← GitHub Pages 自动部署
 ```
 
 > `data/` 是导出时的快照。真正生效的数据在资料库表里，改本地 CSV 不会同步上线。
@@ -76,6 +91,8 @@ window.__SMART_PAGE__ = { workbench: {
 ```
 
 伪造数据的字段形状见 §5 各 Tool 的返回契约。
+
+> GitHub Pages 演示版由 `tools/build-pages.mjs` 用同一手法生成：由 `data/cards.csv` 派生示例卡片，注入带读写模拟的 `window.__SMART_PAGE__` 桩。
 
 ---
 
