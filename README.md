@@ -1,32 +1,20 @@
 # 零基础英语学习工作台 · 项目源码
 
-一个跑在 WorkBuddy 资料库里的 **Page workbench**：单文件 HTML 前端 + 私有 JS 后端 + 两张资料库数据表。
-面向英语零基础用户的 30 天学习工具，核心是 SRS 间隔复习、音标入门、场景对话、跟读与打卡统计。
+一个**单文件 HTML 前端 + 私有 JS 后端**的英语学习工具：30 天从零基础到开口，核心是 SRS 间隔复习、音标入门、场景对话、跟读与打卡统计。
+
+前端只负责渲染，所有数据读写都通过宿主注入的桥接对象完成（见 §3）。
 
 导出版本：**页面 v11**（2026-11-23）
 
 ---
 
-## 1. 线上位置
+## 1. 在线预览
 
-| 项 | 值 |
-|---|---|
-| 页面节点 ID | `ygn2SF6n64e2cckVAaHgzY` |
-| 编辑态 | https://www.workbuddy.cn/space/d/ygn2SF6n64e2cckVAaHgzY |
-| 公开链接 | https://workbuddy.link/p/ygn2SF6n64e2cckVAaHgzY |
-| 卡片表 `CARDS_DB` | `<CARDS_DB_ID>`（英语学习卡片，54 条） |
-| 打卡表 `LOGS_DB` | `<LOGS_DB_ID>`（英语打卡记录） |
-| 已解绑旧表 | `<OLD_LOGS_DB_ID>`（英语学习日志·旧表，可删除） |
-
-> **真实表 ID 只存私有环境**：本仓库是公开仓库，README 与 `data/*.schema.json` 中的表 ID 已替换为占位符，真实 ID 只保存在私有环境（`private/backend.js`）。请勿把真实 ID 写回本文档。
-
-### 在线访问（GitHub Pages）
-
-GitHub Pages 上有部署好的**只读演示版**，打开即可浏览界面与示例数据；写操作只在当前页面会话内生效，刷新即还原，不会写入资料库：
+GitHub Pages 上部署了**只读演示版**，打开即可浏览界面与示例数据；写操作只在当前页面会话内生效，刷新即还原：
 
 - https://kukuos.github.io/English-Learning-Hub/
 
-需要真实读写与打卡，请使用上表的 WorkBuddy 公开链接。演示版由 `.github/workflows/pages.yml` 在每次推送 `main` 时自动构建。
+演示版由 `.github/workflows/pages.yml` 在每次推送 `main` 时自动构建。真实使用需要接入数据后端（见 §3、§8）。
 
 ---
 
@@ -36,12 +24,12 @@ GitHub Pages 上有部署好的**只读演示版**，打开即可浏览界面与
 English/
 ├── README.md                      ← 本文件
 ├── AGENTS.md                      ← 给 AI 智能体的极简规则（先读这个）
-├── frontend/                      ← 公开产物，会原样发到 CDN
+├── frontend/                      ← 纯静态产物，可直接托管
 │   ├── 零基础英语学习工作台.html      ← 全部前端（HTML+CSS+JS 单文件，约 2400 行）
 │   ├── manifest.json               ← PWA 清单
 │   ├── sw.js                       ← Service Worker（network-first）
 │   └── icon.svg                    ← 图标
-├── private/                       ← 私有源码，永不出现在公开产物里
+├── private/                       ← 私有后端源码，不随前端发布
 │   ├── backend.js                  ← 后端 9 个 Tool 的实现（ESM）
 │   └── workbench.json              ← Tool 描述与 JSON Schema（1–64 个 Tool）
 ├── data/                          ← 只读快照，方便理解数据，不要当数据源改
@@ -55,25 +43,24 @@ English/
         └── pages.yml               ← GitHub Pages 自动部署
 ```
 
-> `data/` 是导出时的快照。真正生效的数据在资料库表里，改本地 CSV 不会同步上线。
+> `data/` 是导出时的快照。真正生效的数据在后端数据表里，改本地 CSV 不会同步。
 
 ---
 
 ## 3. 运行机制（务必先理解）
 
-这三个文件不是「本地打开的静态网页」，它们依靠平台注入的桥接对象运行：
+前端不是「本地打开的静态网页」，它依靠宿主注入的桥接对象运行：
 
 ```js
 // 前端唯一的数据通道
 window.__SMART_PAGE__.workbench.callTool(name, payload)  // → Promise<{isError, structuredContent}>
 ```
 
-- 平台在 `<head>` 注入 `/page/page_comm/inject.js`，由它把 `__SMART_PAGE__` 塞进页面。
-- 前端 **完全不做数据库 CRUD**，只调 `callTool`；所有读写都落在 `private/backend.js`。
+- 前端 **完全不做数据 CRUD**，只调 `callTool`；所有读写都落在 `private/backend.js`。
 - 后端通过 `ctx.db.query / addRecord / updateRecord / deleteRecord` 访问两张表。
-- `frontend/` 与 `private/` 物理隔离：私有文件只能通过 `--target backend` 单独上传，绝不能被 zip 进公开产物。
+- `frontend/` 与 `private/` 物理隔离：私有文件不进前端产物。
 
-### 本地预览（不接平台时）
+### 本地预览（不接后端时）
 
 直接双击 HTML 会显示「当前环境没有连接工作台能力」，因为 `window.__SMART_PAGE__` 不存在。
 要在本地调 UI，就在 HTML 的 `</head>` 前插一段桩代码：
@@ -98,7 +85,7 @@ window.__SMART_PAGE__ = { workbench: {
 
 ## 4. 数据模型
 
-### 卡片表 `<CARDS_DB_ID>`（英语学习卡片）
+### 卡片表（英语学习卡片）
 
 | 字段 | 类型 | 说明 / 选项 |
 |---|---|---|
@@ -116,7 +103,7 @@ window.__SMART_PAGE__ = { workbench: {
 
 当前 54 张：单词 18、音标 12、句型 12、短语 6、语法 6。
 
-### 打卡表 `<LOGS_DB_ID>`（英语打卡记录）
+### 打卡表（英语打卡记录）
 
 | 字段 | 类型 | 说明 |
 |---|---|---|
@@ -217,74 +204,44 @@ window.__SMART_PAGE__ = { workbench: {
 
 ---
 
-## 8. 怎么改 / 怎么上线
+## 8. 本地开发与部署
 
-### 方式 A：让 WorkBuddy 里的智能体改（推荐）
+### 改前端
 
-它会走「打开事务 → 下载 → 改 → 预检 → 提交 → 询问是否同步发布」的标准流程，自带 lint 与 diff 校验。
-
-### 方式 B：手改后自己上传
-
-平台要求按事务提交，不能直接覆盖文件：
+直接改 `frontend/零基础英语学习工作台.html`，改完做语法自检：
 
 ```bash
-SKILL=/Applications/WorkBuddy.app/Contents/Resources/app.asar.unpacked/resources/plugins/workbuddy-builtin/skills/library
-
-# 1) 开事务，拿 transactionId / baseVersion，并下载要改的文件
-python3 "$SKILL/page/prepare_page_edit.py" --node-id ygn2SF6n64e2cckVAaHgzY --path "零基础英语学习工作台.html"
-
-# 2) 改完先预检（diff + lint）
-python3 "$SKILL/page/finalize_page_edit.py" --check-only --work-dir "<work_dir>" --path "零基础英语学习工作台.html"
-
-# 3) 提交（只上传改动过的文件）
-python3 "$SKILL/page/finalize_page_edit.py" --work-dir "<work_dir>" --path "零基础英语学习工作台.html" \
-  --message "本次改动说明"
-
-# 4) 同步到公开链接
-python3 "$SKILL/page/publish_page.py" --node-id ygn2SF6n64e2cckVAaHgzY
+python3 - <<'EOF'
+import re
+s = open('frontend/零基础英语学习工作台.html', encoding='utf-8').read()
+js = [b for b in re.findall(r'<script[^>]*>(.*?)</script>', s, re.S) if 'PHONEMES' in b][0]
+open('/tmp/chk.js', 'w', encoding='utf-8').write(js)
+EOF
+node --check /tmp/chk.js
 ```
 
-改后端时：`create_page_transaction.py` → `get_workbench_sources.py --base-version <v> --out-dir private` 取回私有文件，
-改完用 `upload_page_artifact.py --path backend.js --file … --target backend` 同时上传 `backend.js` 和 `workbench.json`，再 commit。
-**改后端必须两个文件一起传**，只传一个是坏的后端。
+### 改后端
 
-### 方式 C：自己托管
+`private/backend.js` 与 `private/workbench.json` 必须一起改：Tool 名称、入参字段、返回结构三方一一对应。
 
-`frontend/` 里的 4 个文件是纯静态的，可以直接丢到任意静态托管上——但那样没有后端，所有 `callTool` 都会失败。
-仅有 HTML 时页面会退化为「无数据」状态（顶部横幅提示未连接工作台）。
+### 部署
+
+- **GitHub Pages**：推送 `main` 自动构建并部署（`.github/workflows/pages.yml`）。本地预览构建结果：`node tools/build-pages.mjs`，再起任意静态服务打开 `_site/`。
+- **自行托管**：`frontend/` 里 4 个文件是纯静态的，可以直接丢到任意静态托管上——但没有后端，所有 `callTool` 都会失败。仅有 HTML 时页面会退化为「无数据」状态（顶部横幅提示未连接工作台）。
 
 ---
 
-## 9. 平台坑（踩过的，别重复踩）
+## 9. 实现约束（踩过的，别重复踩）
 
-1. **主键字段是 `_id`**。`ctx.db.query` 返回扁平记录，不是 `{id, properties}` 结构；取错字段会让评分静默失效、打卡每次新增一行。
-2. **某张表上 `updateRecord` / `deleteRecord` 会返回 400 `DATA_ACCESS_FAILED`**。当前打卡表已做三级兜底（update → delete+add → 纯追加），换表可能再遇到，`dedupeLogs()` 必须保留。
-3. **CSP 只放行 `media-src https:`**，所以音频只能走 https 外链，不能用 `blob:` 之外的本地资源。
-4. **公开链接的查看器 iframe 没有 `allow="microphone"`**，`getUserMedia` 必然 `NotAllowedError`，与用户浏览器权限无关。代码里有 `micBlockedReason()` 检测 + `shadowRead()` 节拍跟读降级，**不要删这段降级逻辑**。
-5. **`/page/page_comm/inject.js` 是绝对路径**，换域名/自托管会导致桥接注入失败。
-6. **lint 误报**：`finalize_page_edit` 的 `HEDIT101` 会把 `new Blob`、`new MediaRecorder` 当成裸函数调用，写成 `window.Blob` / `window.MediaRecorder` 即可。
-7. **卡片「加入日期」不要写成导入当天**，否则首日 54 张直接触发每日上限；当前统一为 `2026-11-01`。
-8. 页面上 `/iː/` 这类纯符号必须配 `SAMPLES` 例词才能发音。
+1. **主键字段是 `_id`**。数据层返回的是扁平记录，不是 `{id, properties}` 结构；取错字段会让评分静默失效、打卡每次新增一行。
+2. **某些表上 `updateRecord` / `deleteRecord` 会返回 400**。当前打卡表已做三级兜底（update → delete+add → 纯追加），换表可能再遇到，`dedupeLogs()` 必须保留。
+3. **音频只能走 https 外链**（预览环境不允许本地资源），`speak()` 的音源切换不要改成 blob。
+4. **嵌入式预览没有麦克风授权**，`getUserMedia` 会报 `NotAllowedError`。代码里有 `micBlockedReason()` 检测 + `shadowRead()` 节拍跟读降级，**不要删这段降级逻辑**。
+5. **卡片「加入日期」不要写成导入当天**，否则首日 54 张直接触发每日上限；当前统一为 `2026-11-01`。
+6. 页面上 `/iː/` 这类纯符号必须配 `SAMPLES` 例词才能发音。
 
 ---
 
 ## 10. 已知限制 / 未做
 
 - 录音只存在内存 `Blob`，刷新即失效，未上传、未做声纹对比。
-- 离线是「有限离线」：有缓存可刷卡评分、写入排队，但卡片库/打卡等必须联网。
-- PWA 真离线安装不可行——页面嵌在查看器 iframe 里，安装主体是外层文档。
-- 每日提醒/自动推送未接（可选方案：定时调 `get_dashboard` + `get_review_queue` 后推企业微信机器人）。
-- 音标进度 `enwb.ph` 只存本机，不跨设备同步。
-
----
-
-## 11. 版本历史（摘要）
-
-| 版本 | 内容 |
-|---|---|
-| v4 | 初版：30 天课程表 + SRS + 打卡 |
-| v5 | 真人词典音 + 0.6 倍速 + 音标例词 + 最小对立对 |
-| v6 | 跟读录音对比、学习计时器、辨音小测 |
-| v7 | 麦克风受限诊断 + 跟读节拍降级 |
-| v10 | 七项补齐：弱项池、对话演练、每日新卡上限、离线队列、PWA、`_id` 关键 bug 修复 |
-| v11 | 音标入门：48 个音分 5 组 + 口型提示 + 辨音对比 + 「我会了」进度 |
