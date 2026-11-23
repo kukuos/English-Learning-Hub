@@ -14,7 +14,7 @@ GitHub Pages 上部署了**只读演示版**，打开即可浏览界面与示例
 
 - https://kukuos.github.io/English-Learning-Hub/
 
-演示版由 `.github/workflows/pages.yml` 在每次推送 `main` 时自动构建。真实使用需要接入数据后端（见 §3、§8）。
+站点就是 `docs/` 目录里的静态文件，GitHub Pages 直接发布该目录，不需要构建服务；带演示数据的副本由 `tools/build-pages.mjs` 生成。真实使用需要接入数据后端（见 §3、§8）。
 
 ---
 
@@ -36,11 +36,15 @@ English/
 │   ├── cards.schema.json           ← 卡片表结构
 │   ├── logs.schema.json            ← 打卡表结构
 │   └── cards.csv                   ← 54 张卡片当前内容
-├── tools/                         ← 构建脚本
-│   └── build-pages.mjs             ← 生成 Pages 演示版（注入内嵌示例数据桩）
-└── .github/
-    └── workflows/
-        └── pages.yml               ← GitHub Pages 自动部署
+├── docs/                          ← GitHub Pages 站点（静态文件，直接发布）
+│   ├── index.html                 ← 带演示桩的前端副本
+│   ├── 零基础英语学习工作台.html    ← 同上（Service Worker 离线回退用）
+│   ├── manifest.json
+│   ├── sw.js
+│   ├── icon.svg
+│   └── .nojekyll                  ← 关闭 Jekyll 处理
+└── tools/
+    └── build-pages.mjs             ← 重新生成 docs/ 的脚本
 ```
 
 > `data/` 是导出时的快照。真正生效的数据在后端数据表里，改本地 CSV 不会同步。
@@ -226,7 +230,7 @@ node --check /tmp/chk.js
 
 ### 部署
 
-- **GitHub Pages**：推送 `main` 自动构建并部署（`.github/workflows/pages.yml`）。本地预览构建结果：`node tools/build-pages.mjs`，再起任意静态服务打开 `_site/`。
+- **GitHub Pages**：仓库 `docs/` 目录即站点根目录，直接发布静态文件，不需要构建服务。`docs/` 由 `node tools/build-pages.mjs` 生成（改了 `frontend/` 或 `data/cards.csv` 后重新运行并提交）。本地预览：起任意静态服务打开 `docs/` 即可。
 - **自行托管**：`frontend/` 里 4 个文件是纯静态的，可以直接丢到任意静态托管上——但没有后端，所有 `callTool` 都会失败。仅有 HTML 时页面会退化为「无数据」状态（顶部横幅提示未连接工作台）。
 
 ---

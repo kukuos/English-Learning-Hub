@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
- * 生成 GitHub Pages 演示站：
- *   _site/index.html         ← 原前端 + 注入内嵌示例数据桩（演示宿主）
- *   _site/<原文件名>.html    ← 同上，供 Service Worker 离线回退用
- *   _site/manifest.json, sw.js, icon.svg
+ * 生成 GitHub Pages 演示站（输出到 docs/，作为静态站点直接发布）：
+ *   docs/index.html          ← 原前端 + 注入内嵌示例数据桩（演示宿主）
+ *   docs/<原文件名>.html     ← 同上，供 Service Worker 离线回退用
+ *   docs/manifest.json, sw.js, icon.svg, .nojekyll
  *
  * 源文件 frontend/ 不做任何修改；桩代码只注入到 _site 的副本里。
  * 示例数据由 data/cards.csv 派生，日期按打开当天动态计算，因此演示站不会过期。
@@ -14,7 +14,7 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SRC = join(ROOT, "frontend");
-const OUT = join(ROOT, "_site");
+const OUT = join(ROOT, "docs");
 const HTML_NAME = "零基础英语学习工作台.html";
 
 function parseCSV(text) {
@@ -412,5 +412,7 @@ writeFileSync(join(OUT, HTML_NAME), htmlOut, "utf8");
 for(const f of ["manifest.json", "sw.js", "icon.svg"]) {
   copyFileSync(join(SRC, f), join(OUT, f));
 }
+// 关闭 Jekyll 处理，按纯静态文件发布
+writeFileSync(join(OUT, ".nojekyll"), "", "utf8");
 
-console.log(`Pages 演示站已生成：_site/（${cards.length} 张示例卡片，${logs.length} 条示例打卡）`);
+console.log(`Pages 演示站已生成：docs/（${cards.length} 张示例卡片，${logs.length} 条示例打卡）`);
