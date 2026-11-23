@@ -1,0 +1,15 @@
+# 私有后端源码：不能进公开仓库
+private/
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+node_modules/
+*.log
+
+# 本地临时文件
+tmp/
+*.tmp

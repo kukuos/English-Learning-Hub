@@ -1,0 +1,2460 @@
+<!DOCTYPE html>
+<html data-page-node-id="RsWumFKpJ2KE5StyePMPhX" lang="zh-CN">
+<head data-page-node-id="Wdw4mhWPYfGJzCyVEFrkU9">
+<script data-page-node-id="L1i2SWUlbXRu3Kg24y0VLK" src="/page/page_comm/inject.js"></script>
+<meta data-page-node-id="xLofrxC3weNSmLme0aVlLR" charset="utf-8">
+<meta data-page-node-id="JUqMBL94xRJ6cWLnfX9Yoe" content="width=device-width, initial-scale=1" name="viewport">
+<link data-page-node-id="ZLeN0Wx3D2R0tQbTtaWZvF" href="manifest.json" rel="manifest">
+<link data-page-node-id="6YCrTIfNSTYsltpUUDiqpZ" href="icon.svg" rel="icon" type="image/svg+xml">
+<meta data-page-node-id="Q72i0pVpcpcdXAKZm6SZpv" content="#4f46e5" name="theme-color">
+<meta data-page-node-id="X8YchCl8urPogGDSQ7pyDE" content="英语 30 天" name="apple-mobile-web-app-title">
+<title data-page-node-id="BQTKxM3t1lBO4pIcbsEvMk" data-pnid-children="cRXyku2itZQz3Bbohj2vWY">零基础英语学习工作台</title>
+<style data-page-node-id="xTVGVnhuw8UsuQAND9VN1J" data-pnid-children="W084uOhD06OF2p5AP6c9ET">
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#f5f6fa; --panel:#ffffff; --ink:#15171e; --ink2:#3b4050; --muted:#7b8296;
+    --line:#e9ecf4; --line2:#f1f3f9;
+    --brand:#4f46e5; --brand2:#7c6cf5; --brand-soft:#eef0ff;
+    --amber:#f59e0b; --amber-soft:#fff6e5;
+    --green:#0f9d76; --green-soft:#e7f7f1;
+    --rose:#e35d6a; --rose-soft:#fdeef0;
+    --shadow:0 1px 2px rgba(20,24,40,.04),0 8px 24px rgba(20,24,40,.06);
+  }
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+    font-size:14px; line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:20px 18px 64px}
+  .topbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:6px 0 18px}
+  .logo{display:flex;align-items:center;gap:11px}
+  .logo .mark{
+    width:42px;height:42px;border-radius:13px;display:grid;place-items:center;
+    background:linear-gradient(145deg,var(--brand),var(--brand2));color:#fff;
+    font-weight:700;font-size:17px;letter-spacing:-.5px;box-shadow:0 6px 16px rgba(79,70,229,.28)
+  }
+  .logo h1{font-size:17px;margin:0;letter-spacing:-.2px}
+  .logo p{margin:1px 0 0;font-size:12px;color:var(--muted)}
+  .topbar .spacer{flex:1}
+  .chip{
+    display:inline-flex;align-items:center;gap:6px;background:var(--panel);border:1px solid var(--line);
+    padding:6px 12px;border-radius:999px;font-size:12.5px;color:var(--ink2);box-shadow:var(--shadow)
+  }
+  .chip b{color:var(--ink);font-weight:600}
+  .chip.streak{background:var(--amber-soft);border-color:#fbe3b4;color:#8a5a00}
+  .chip.streak b{color:#8a5a00}
+
+  .tabs{display:flex;gap:4px;background:#eceef6;padding:4px;border-radius:14px;margin-bottom:20px;overflow-x:auto}
+  .tab{
+    flex:1 0 auto;border:0;background:transparent;padding:9px 16px;border-radius:11px;cursor:pointer;
+    font-size:13.5px;color:var(--muted);font-family:inherit;white-space:nowrap;transition:.16s
+  }
+  .tab:hover{color:var(--ink2)}
+  .tab.on{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 2px 8px rgba(20,24,40,.08)}
+
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}
+  .panel h2{font-size:14px;margin:0 0 14px;letter-spacing:.2px;display:flex;align-items:center;gap:8px}
+  .panel h2 .dot{width:7px;height:7px;border-radius:50%;background:var(--brand)}
+  .muted{color:var(--muted)}
+  .grid2{display:grid;grid-template-columns:1.55fr 1fr;gap:16px;align-items:start}
+  .stack{display:flex;flex-direction:column;gap:16px}
+  @media(max-width:840px){.grid2{grid-template-columns:1fr}}
+
+  .hero{
+    position:relative;overflow:hidden;border-radius:20px;padding:24px 26px;margin-bottom:16px;
+    background:linear-gradient(120deg,#3b33c9 0%,#5b4fe0 52%,#8b7bf7 100%);color:#fff;
+    display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+    box-shadow:0 14px 34px rgba(76,64,214,.26)
+  }
+  .hero::after{
+    content:"";position:absolute;right:-70px;top:-90px;width:260px;height:260px;border-radius:50%;
+    background:radial-gradient(circle,rgba(255,255,255,.22),transparent 65%)
+  }
+  .hero .pill{display:inline-block;background:rgba(255,255,255,.18);padding:4px 11px;border-radius:999px;font-size:12px;letter-spacing:.3px}
+  .hero h2{font-size:22px;margin:10px 0 6px;line-height:1.35;letter-spacing:-.3px;font-weight:650}
+  .hero p{margin:0;font-size:13px;color:rgba(255,255,255,.86);max-width:520px}
+  .ring{position:relative;width:96px;height:96px;flex:0 0 auto;z-index:1}
+  .ring svg{transform:rotate(-90deg)}
+  .ring .val{position:absolute;inset:0;display:grid;place-items:center;font-size:19px;font-weight:650}
+  .ring .val small{display:block;font-size:10.5px;font-weight:400;opacity:.8;margin-top:-2px}
+
+  .task{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-bottom:1px dashed var(--line);cursor:pointer}
+  .task:last-child{border-bottom:0}
+  .task .box{
+    width:19px;height:19px;border-radius:6px;border:1.6px solid #cfd5e6;flex:0 0 auto;margin-top:2px;
+    display:grid;place-items:center;transition:.16s;background:#fff
+  }
+  .task .box svg{opacity:0;transform:scale(.6);transition:.16s}
+  .task.done .box{background:var(--green);border-color:var(--green)}
+  .task.done .box svg{opacity:1;transform:scale(1)}
+  .task.done .tx{color:var(--muted);text-decoration:line-through}
+  .task .tx{font-size:13.5px;color:var(--ink2)}
+
+  .btn{
+    border:1px solid var(--line);background:#fff;color:var(--ink2);border-radius:11px;padding:9px 15px;
+    font-size:13.5px;font-family:inherit;cursor:pointer;transition:.16s;display:inline-flex;align-items:center;gap:7px
+  }
+  .btn:hover{border-color:#d3d9ea;background:#fbfcff}
+  .btn.primary{background:linear-gradient(145deg,var(--brand),var(--brand2));border-color:transparent;color:#fff;font-weight:600;box-shadow:0 6px 16px rgba(79,70,229,.25)}
+  .btn.primary:hover{filter:brightness(1.05)}
+  .btn.ghost{background:transparent;border-color:transparent;color:var(--muted)}
+  .btn.ghost:hover{background:var(--line2);color:var(--ink2)}
+  .btn.sm{padding:6px 11px;font-size:12.5px;border-radius:9px}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .btn.full{width:100%;justify-content:center}
+
+  .big-num{font-size:30px;font-weight:680;letter-spacing:-1px;line-height:1.1}
+  .kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+  @media(max-width:720px){.kpi{grid-template-columns:repeat(2,1fr)}}
+  .kpi .cell{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:15px 16px;box-shadow:var(--shadow)}
+  .kpi .cell .lb{font-size:12px;color:var(--muted);margin-bottom:4px}
+  .kpi .cell .sub{font-size:11.5px;color:var(--muted)}
+
+  .due-strip{display:flex;align-items:center;gap:14px;justify-content:space-between;flex-wrap:wrap}
+  .due-strip .n{font-size:32px;font-weight:680;letter-spacing:-1.5px;line-height:1}
+  .due-strip .n small{font-size:13px;font-weight:400;color:var(--muted);letter-spacing:0}
+
+  .field{margin-bottom:11px}
+  .field label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}
+  input[type=text],input[type=number],select,textarea{
+    width:100%;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:13.5px;
+    font-family:inherit;color:var(--ink);background:#fff;outline:none;transition:.16s
+  }
+  input:focus,select:focus,textarea:focus{border-color:#b9b3f7;box-shadow:0 0 0 3px rgba(124,108,245,.13)}
+  textarea{resize:vertical;min-height:62px}
+  .row{display:flex;gap:10px}
+  .row>*{flex:1}
+
+  /* flashcard */
+  .flash-wrap{max-width:600px;margin:0 auto}
+  .flash{
+    background:var(--panel);border:1px solid var(--line);border-radius:22px;min-height:290px;
+    padding:28px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+    box-shadow:0 12px 34px rgba(20,24,40,.09);cursor:pointer;position:relative;transition:transform .18s,box-shadow .18s
+  }
+  .flash:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(20,24,40,.12)}
+  .flash .badge{
+    position:absolute;top:16px;left:18px;font-size:11.5px;color:var(--brand);background:var(--brand-soft);
+    padding:3px 10px;border-radius:999px;font-weight:600
+  }
+  .flash .lv{position:absolute;top:16px;right:18px;display:flex;gap:3px}
+  .flash .lv i{width:6px;height:6px;border-radius:50%;background:#e2e5ef}
+  .flash .lv i.on{background:var(--brand)}
+  .flash .word{font-size:38px;font-weight:650;letter-spacing:-1px;line-height:1.2;word-break:break-word}
+  .flash .ipa{color:var(--muted);font-size:15px;margin-top:8px;letter-spacing:.4px}
+  .flash .mean{font-size:19px;color:var(--ink2);font-weight:500;margin-top:4px}
+  .flash .ex{font-size:13.5px;color:var(--muted);margin-top:16px;max-width:420px}
+  .flash .ex b{color:var(--ink2);font-weight:500;display:block;font-size:15px;margin-bottom:3px}
+  .flash .hint{position:static;margin-top:14px;font-size:11.5px;color:#aeb4c6}
+  .speak{
+    margin-top:16px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 15px;
+    font-size:12.5px;color:var(--ink2);cursor:pointer;display:inline-flex;gap:6px;align-items:center;font-family:inherit
+  }
+  .speak:hover{background:var(--brand-soft);border-color:#d8d3fb;color:var(--brand)}
+  .audiobar{display:flex;align-items:center;gap:6px;margin:-6px 0 14px;font-size:12px;color:var(--muted);overflow-x:auto;white-space:nowrap;padding:2px 0}
+  .audiobar .alabel{white-space:nowrap;color:#9aa1b4}
+  .aseg{border:1px solid var(--line);background:#fff;color:var(--muted);font-size:12px;padding:4px 10px;border-radius:8px;cursor:pointer;font-family:inherit;white-space:nowrap}
+  .aseg.on{background:var(--brand-soft);border-color:#d9dcff;color:var(--brand);font-weight:600}
+  .asep{width:1px;height:13px;background:var(--line);margin:0 2px}
+  .flash .sampleword{font-size:12.5px;color:var(--muted);margin-top:10px}
+  .flash .sampleword b{color:var(--ink2);font-weight:600}
+  .flash .pairbox{margin-top:12px;background:#fafbff;border:1px dashed #dfe3f0;border-radius:12px;padding:9px 11px;width:100%;max-width:380px;cursor:default}
+  .flash .plabel{font-size:11.5px;color:var(--muted);margin-bottom:7px;text-align:left}
+  .flash .prow{display:flex;gap:8px}
+  .flash .prow .btn{flex:1}
+  .chunk{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;justify-content:center}
+  .chunk span{font-size:12px;color:var(--ink2);background:#f4f5fa;border-radius:7px;padding:3px 8px}
+  .chunk span.hit{background:var(--brand-soft);color:var(--brand);font-weight:600}
+  .sayrow{display:flex;align-items:center;gap:10px;background:#fafbff;border:1px solid var(--line);border-radius:11px;padding:9px 12px;margin-bottom:8px}
+  .sayrow .saytext{flex:1;font-size:13.5px;font-weight:500;line-height:1.5}
+  .sayrow .saybtns{display:flex;gap:6px;flex:0 0 auto}
+  .sayrow .btn.sm{padding:6px 9px}
+  @media(max-width:520px){
+    .sayrow{flex-direction:column;align-items:stretch;gap:8px}
+    .sayrow .saybtns{justify-content:flex-end}
+  }
+  .recline{font-size:12px;color:var(--muted);margin-bottom:12px}
+  .mic-live{background:var(--rose-soft)!important;border-color:#f3c6cc!important;color:#bd3d4c!important;font-weight:600}
+  .timerbox{display:flex;align-items:center;gap:10px;background:#f7f8ff;border:1px solid #e6e8f8;border-radius:12px;padding:10px 12px;margin-bottom:12px}
+  .timerbox .tnum{font-size:16px;font-weight:700;color:var(--brand);font-variant-numeric:tabular-nums;letter-spacing:.4px}
+  .timerbox .tlabel{font-size:11.5px;color:var(--muted);margin-bottom:1px}
+  .qopt{justify-content:center;font-size:15px;padding:12px}
+  .quizbig{font-size:26px;font-weight:700;color:var(--brand)}
+  .grades{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+  .grades.two{grid-template-columns:repeat(2,1fr)}
+  .grade{
+    border:1px solid var(--line);background:#fff;border-radius:13px;padding:12px 8px;cursor:pointer;
+    font-family:inherit;font-size:13.5px;color:var(--ink2);transition:.16s;text-align:center
+  }
+  .grade small{display:block;font-size:11px;color:var(--muted);margin-top:2px}
+  .grade:hover{transform:translateY(-1px)}
+  .grade.g1:hover{border-color:#f3b8bf;background:var(--rose-soft);color:#a5323f}
+  .grade.g2:hover{border-color:#f7d79a;background:var(--amber-soft);color:#8a5a00}
+  .grade.g3:hover{border-color:#a7e2cd;background:var(--green-soft);color:#0b6b52}
+  .progress-line{height:5px;background:var(--line);border-radius:999px;overflow:hidden;margin:0 0 16px}
+  .progress-line i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand2));transition:width .3s}
+
+  /* list */
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+  .toolbar input[type=text]{width:200px}
+  .fchip{
+    border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-size:12.5px;
+    color:var(--muted);cursor:pointer;font-family:inherit
+  }
+  .fchip.on{background:var(--brand);border-color:var(--brand);color:#fff}
+  .card-row{
+    display:flex;gap:12px;align-items:center;padding:12px 4px;border-bottom:1px solid var(--line2)
+  }
+  .card-row:last-child{border-bottom:0}
+  .card-row .main{flex:1;min-width:0}
+  .card-row .c1{font-size:14.5px;font-weight:600;letter-spacing:-.1px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .card-row .c2{font-size:12.5px;color:var(--muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .tag{font-size:11px;padding:2px 8px;border-radius:6px;background:var(--line2);color:var(--muted);font-weight:500}
+  .tag.t1{background:#eef4ff;color:#3b62c9}
+  .tag.t2{background:#eafaf3;color:#0b7a5b}
+  .tag.t3{background:#fff5e8;color:#9a6209}
+  .tag.t4{background:#f4eeff;color:#6b46c1}
+  .tag.t5{background:#fdeef0;color:#b23a48}
+  .dots{display:flex;gap:3px}
+  .dots i{width:6px;height:6px;border-radius:50%;background:#e2e5ef}
+  .dots i.on{background:var(--green)}
+  .due-txt{font-size:11.5px;color:var(--muted);white-space:nowrap;min-width:74px;text-align:right}
+  .due-txt.now{color:var(--brand);font-weight:600}
+  .ico-btn{border:0;background:transparent;color:#b9bfd0;cursor:pointer;padding:5px;border-radius:8px;line-height:0}
+  .ico-btn:hover{background:var(--line2);color:var(--ink2)}
+
+  .bars{display:flex;align-items:flex-end;gap:6px;height:120px;margin-top:6px}
+  .bars .b{flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:5px;align-items:center;height:100%}
+  .bars .b i{display:block;width:100%;border-radius:6px 6px 3px 3px;background:linear-gradient(180deg,#a99efb,#5b4fe0);min-height:3px;transition:.3s}
+  .bars .b i.zero{background:#eef0f7}
+  .bars .b span{font-size:10px;color:#a8aec0}
+  .lv-list{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+  .lv-row{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--ink2)}
+  .lv-row .lb{width:52px;color:var(--muted);flex:0 0 auto}
+  .lv-row .track{flex:1;height:9px;background:#f2f4fa;border-radius:999px;overflow:hidden}
+  .lv-row .track i{display:block;height:100%;background:linear-gradient(90deg,#7c6cf5,#4f46e5);border-radius:999px}
+  .lv-row .n{width:26px;text-align:right;color:var(--muted);font-size:12px}
+
+  .empty{text-align:center;padding:44px 20px;color:var(--muted)}
+  .empty .ic{font-size:34px;margin-bottom:8px;opacity:.5}
+
+  .banner{background:#fff4f4;border:1px solid #f6d4d8;color:#93414b;border-radius:12px;padding:11px 14px;font-size:13px;margin-bottom:16px}
+
+  .guide h3{font-size:14.5px;margin:22px 0 8px}
+  .guide h3:first-child{margin-top:0}
+  .guide p,.guide li{font-size:13.5px;color:var(--ink2);line-height:1.75}
+  .guide ul{padding-left:18px;margin:6px 0}
+  .guide .note{background:var(--brand-soft);border-left:3px solid var(--brand);padding:10px 14px;border-radius:0 10px 10px 0;font-size:13px;color:#3f3a8f;margin:12px 0}
+  .tbl{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+  .tbl th{text-align:left;color:var(--muted);font-weight:500;font-size:12px;padding:7px 8px;border-bottom:1px solid var(--line)}
+  .tbl td{padding:7px 8px;border-bottom:1px solid var(--line2);color:var(--ink2)}
+  .tbl td:first-child{white-space:nowrap;color:var(--muted);font-size:12px}
+
+  /* modal */
+  .mask{position:fixed;inset:0;background:rgba(18,20,32,.42);display:grid;place-items:center;padding:20px;z-index:50;backdrop-filter:blur(2px)}
+  .modal{background:#fff;border-radius:18px;width:100%;max-width:480px;padding:22px;box-shadow:0 24px 60px rgba(15,18,35,.28);max-height:88vh;overflow:auto}
+  .modal h3{margin:0 0 16px;font-size:16px}
+  .modal .foot{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}
+  .toast{
+    position:fixed;left:50%;bottom:28px;transform:translate(-50%,14px);background:#15171e;color:#fff;
+    padding:10px 18px;border-radius:11px;font-size:13px;opacity:0;pointer-events:none;transition:.22s;z-index:80
+  }
+  .toast.on{opacity:1;transform:translate(-50%,0)}
+  .skel{background:linear-gradient(90deg,#f2f4fa,#e9ecf5,#f2f4fa);background-size:200% 100%;animation:sh 1.2s infinite;border-radius:10px}
+  @keyframes sh{0%{background-position:200% 0}100%{background-position:-200% 0}}
+  /* ---- 新增：弱项池 / 对话 / 新卡上限 / 离线 ---- */
+  .card-row .c2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;white-space:normal;overflow:hidden}
+  .kpi{grid-template-columns:repeat(auto-fit,minmax(148px,1fr))}
+  .leech-row{display:flex;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line2)}
+  .leech-row:last-child{border-bottom:0}
+  .leech-row .lmain{flex:1;min-width:0}
+  .leech-row .len{font-size:14.5px;font-weight:600;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+  .leech-row .lcn{font-size:12.5px;color:var(--muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .tag.leech{background:#fdeef0;color:#b23a48}
+  .capbar{display:flex;align-items:center;gap:9px;font-size:12px;color:var(--muted);margin:-2px 0 12px;flex-wrap:wrap}
+  .capbar .track{flex:1 1 60px;min-width:46px;max-width:170px;height:6px;background:#f1f3f9;border-radius:999px;overflow:hidden}
+  .capbar .track i{display:block;height:100%;background:linear-gradient(90deg,#7c6cf5,#4f46e5)}
+  .capbar.warn{color:#a5323f}
+  .capbar.warn .track i{background:linear-gradient(90deg,#e88,#d3545f)}
+  .dlg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:12px}
+  .dlg-card{border:1px solid var(--line);border-radius:14px;padding:14px;cursor:pointer;transition:.16s;background:#fff}
+  .dlg-card:hover{border-color:#cfd6ea;box-shadow:0 8px 22px rgba(20,24,40,.07);transform:translateY(-1px)}
+  .dlg-card .dt{font-size:14.5px;font-weight:650;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+  .dlg-card .ds{font-size:12.5px;color:var(--muted);margin-top:5px;line-height:1.6}
+  .dlg-card .dm{font-size:11.5px;color:#9aa1b4;margin-top:9px}
+  .modeseg{display:inline-flex;background:#eceef6;border-radius:10px;padding:3px;gap:2px}
+  .modeseg button{border:0;background:transparent;font-family:inherit;font-size:12.5px;color:var(--muted);padding:5px 12px;border-radius:8px;cursor:pointer}
+  .modeseg button.on{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 2px 6px rgba(20,24,40,.08)}
+  .dline{display:flex;gap:10px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .dline:last-child{border-bottom:0}
+  .dline .who{flex:0 0 44px;font-size:11.5px;color:var(--muted);padding-top:3px}
+  .dline .dbody{flex:1;min-width:0}
+  .dline .den{font-size:14.5px;font-weight:600;line-height:1.5}
+  .dline .dcn{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .dline .dbtns{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}
+  .rolebadge{font-size:11.5px;background:var(--brand-soft);color:var(--brand);border-radius:999px;padding:2px 9px;font-weight:600}
+  .beatbox{background:#f7f8ff;border:1px solid #e6e8f8;border-radius:12px;padding:14px;text-align:center;margin-top:10px}
+  .beatbox .beatn{font-size:26px;font-weight:700;color:var(--brand);font-variant-numeric:tabular-nums}
+  .bars{height:138px;padding-bottom:18px}
+  .bars .b{position:relative;display:block;height:100%}
+  .bars .b i{position:absolute;bottom:0;left:0;right:0;width:100%}
+  .bars .b span{position:absolute;bottom:-17px;left:0;right:0;text-align:center;line-height:1;font-size:10px;color:#a8aec0}
+  @media(max-width:520px){
+    .tab{padding:8px 10px;font-size:13px}
+    .modeseg button{padding:5px 9px;font-size:12px}
+  }
+  .sec-title{font-size:12.5px;color:var(--muted);margin:0 0 10px;letter-spacing:.3px}
+  .divider{height:1px;background:var(--line);margin:16px 0}
+  /* ---- 音标入门 ---- */
+  .ph-groups{display:flex;gap:6px;overflow-x:auto;padding:2px 0 6px;margin-bottom:12px}
+  .ph-gtab{
+    border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:12.5px;
+    color:var(--muted);cursor:pointer;font-family:inherit;white-space:nowrap
+  }
+  .ph-gtab:hover{color:var(--ink2);border-color:#d3d9ea}
+  .ph-gtab.on{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:600}
+  .ph-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(172px,1fr));gap:10px}
+  .ph-card{border:1px solid var(--line);border-radius:14px;padding:13px 12px;background:#fff;position:relative;transition:.16s}
+  .ph-card:hover{border-color:#cfd6ea;box-shadow:0 8px 20px rgba(20,24,40,.07)}
+  .ph-card.got{background:#f7fdfa;border-color:#c6ebdc}
+  .ph-card .sym{font-size:25px;font-weight:600;letter-spacing:-.5px;line-height:1.15;padding-right:18px}
+  .ph-card .cn{display:inline-block;font-size:11px;color:var(--brand);background:var(--brand-soft);border-radius:6px;padding:1px 7px;margin-top:5px;font-weight:500}
+  .ph-card .word{font-size:14px;font-weight:600;margin-top:8px}
+  .ph-card .wz{font-size:11.5px;color:var(--muted);margin-left:6px;font-weight:400}
+  .ph-card .tip{font-size:11.5px;color:#8a90a4;line-height:1.6;margin-top:6px}
+  .ph-card .acts{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:9px}
+  .ph-card .acts .btn{padding:5px 6px;font-size:11.5px;border-radius:8px;justify-content:center}
+  .ph-card .ok{position:absolute;top:10px;right:10px;font-size:11px;color:var(--green);font-weight:600;line-height:1}
+  .ph-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+  .ph-head .big{font-size:26px;font-weight:680;letter-spacing:-1px}
+  .ph-head .big small{font-size:12px;font-weight:400;color:var(--muted);letter-spacing:0}
+  @media(max-width:520px){
+    .ph-groups{flex-wrap:wrap;overflow:visible}
+    .ph-gtab{padding:5px 10px;font-size:12px}
+    .ph-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+    .ph-card{padding:11px 10px}
+    .ph-card .sym{font-size:21px}
+    .ph-card .tip{font-size:11px}
+    .ph-card .acts .btn{padding:4px 7px}
+  }
+</style>
+</head>
+<body data-page-node-id="XaNc0mJ3Xo1f90KxEYKa2M">
+<div data-page-node-id="DXgsxzZFbpxM8iuc5UKF0r" class="wrap">
+  <div data-page-node-id="Q1LGFG2fMt2LziU4JJfx6L" class="topbar">
+    <div data-page-node-id="aRfsFq2xr6HYfKepQ8JIRC" class="logo">
+      <div data-page-node-id="ys88r9dbFioHfoh9NL20Rb" class="mark"><!--pnid:jsCKdDaDiNjmelEOHuyRnB-->Aa</div>
+      <div data-page-node-id="IuHc4w6NNM9HXDBfuNMhWJ">
+        <h1 data-page-node-id="eLfMl6RNfHFUiYkoArkKPu"><!--pnid:84bQKZdAO6mYbj8Et6Gdc6-->零基础英语学习工作台</h1>
+        <p data-page-node-id="XyWmz2bjRsJSKtKMLf8ROO"><!--pnid:5X03xrtufbqGDwFOwCECVg-->30 天从发音到开口 · 每天 20 分钟</p>
+      </div>
+    </div>
+    <div data-page-node-id="zF0P20KouSXB3LXHRp6tUF" class="spacer"></div>
+    <div data-page-node-id="prTane5VznRFkzRXi4Ah08" class="chip streak" id="chip-streak"><!--pnid:Iad2vNieuupFAAD6yAyUih-->🔥 连续 <b data-page-node-id="D8TqgxoFmA6vuRkeCGaJps"><!--pnid:xG9HtCFaQQ4GYHtZl1GAFZ-->0</b><!--pnid:zuxG5q3TqcYZbP86yvEJQa--> 天</div>
+    <div data-page-node-id="Yh0x2nbMnniRvb5tKMpJ2k" class="chip" id="chip-date"><!--pnid:WmrkZZhR1okZFt9Gqb2hO3-->—</div>
+  </div>
+
+  <div data-page-node-id="e5J3G1OIN7FZq4JYjbvbUQ" id="banner"></div>
+  <div data-page-node-id="jFqQPg9XH5T0UVDKkcwbfr" id="offline-bar"></div>
+
+  <nav data-page-node-id="LwhrxNISw6Z0xswpR8GmFo" class="tabs" id="tabs">
+    <button data-page-node-id="8Xfa6sf3ieOdbomGPcSv2s" class="tab on" data-view="today"><!--pnid:k68GTBBE0ugBgiVoB47V81-->今日</button>
+    <button data-page-node-id="QUQwJceRAFeev1jymaYb8F" class="tab" data-view="review"><!--pnid:w20cDh6BtAWF01jqkonEKV-->复习</button>
+    <button data-page-node-id="cMciG5Dfwc87t7yS12GLLr" class="tab" data-view="dialog"><!--pnid:nNBf894RWHWowtsyt65gkN-->对话</button>
+    <button data-page-node-id="61zOE3UtSEvEGhIytotaCu" class="tab" data-view="deck"><!--pnid:lFArsVnZ1mIejCCFSrbo6r-->卡片库</button>
+    <button data-page-node-id="EFydkmMQPpUfNSo202wkLL" class="tab" data-view="progress"><!--pnid:tsCdwzxGAze5NjwrfJm2BO-->进度</button>
+    <button data-page-node-id="d3XtGthG4BMty2j8pwMnQg" class="tab" data-view="guide"><!--pnid:5JySOqyNRCXv8kaMzviagv-->入门指南</button>
+  </nav>
+
+  <div data-page-node-id="QNQzGr8MNFukRV5a8t81gU" class="audiobar" id="audiobar">
+    <span data-page-node-id="NBswOmLd1bbRtJPzI5UL46" class="alabel"><!--pnid:eduHGDBWowXbxvwTHbWbEY-->发音</span>
+    <button data-page-node-id="BIJPwGWp0CsSlwxALQPMoH" class="aseg on" data-src="real"><!--pnid:iSKMBhIC0vlGMeyVO1FuOj-->真人</button>
+    <button data-page-node-id="WFcPgMGLBiDQ2XsheMSxxj" class="aseg" data-src="tts"><!--pnid:5JvRNpR8Rz2d0zrOjV0AON-->系统</button>
+    <span data-page-node-id="TKKreQ2vGUd4eSaCM9IMZp" class="asep"></span>
+    <span data-page-node-id="7emoguX9rJestdP6I3b79l" class="alabel"><!--pnid:zvt3nRZWJ7yKNDfOrqDG5M-->语速</span>
+    <button data-page-node-id="aFj4ZQiLt5Q6B08UMlTn2C" class="aseg on" data-rate="1"><!--pnid:l94q0YleLJMvCElh38fnvN-->1x</button>
+    <button data-page-node-id="yFakmu6fOMGx9Q5Jqck0LU" class="aseg" data-rate="0.6"><!--pnid:E67mp0RfeytayMO6lxfZrX-->0.6x</button>
+    <span data-page-node-id="8spxwUKFNhZN93IC7peuDa" class="asep"></span>
+    <button data-page-node-id="mRB5JqktxKKcF1OIXD1bCz" class="aseg" id="ab-try"><!--pnid:cD5HKw6i4ztQeoDFXS5zRl-->试听</button>
+  </div>
+
+  <main data-page-node-id="QyJiD21jqaZfAC2hWQcL0a" id="view"></main>
+</div>
+
+<div data-page-node-id="G2YckVTgK2VAs2qxke3WdC" id="modal-root"></div>
+<div data-page-node-id="cDXf362QYF1FYjMHzmBjse" class="toast" id="toast"></div>
+
+<script data-page-node-id="o4vG1SZMgKdEhm1yGJBa1c" data-pnid-children="ktZDWFkEnGUos4aKnXLsYy">
+(function(){
+  "use strict";
+
+  var TODAY = (function(){
+    var d = new Date();
+    var m = String(d.getMonth()+1).padStart(2,"0");
+    var dd = String(d.getDate()).padStart(2,"0");
+    return d.getFullYear()+"-"+m+"-"+dd;
+  })();
+
+  var DATE_TOOLS = {get_dashboard:1,list_cards:1,get_review_queue:1,add_card:1,review_card:1,reset_card:1,save_daily_log:1};
+
+  var DAILY_CAP = 8;
+  var CACHE_KEYS = {dash:"enwb.cache.dash", queue:"enwb.cache.queue", cards:"enwb.cache.cards", pending:"enwb.pending"};
+  var OFFLINE = {on:false, reason:""};
+
+  var DIALOGUES = [
+    {id:"meet", title:"第一次见面", day:15,
+      scene:"同事把新同事介绍给你，你们第一次说话。",
+      roles:{A:"你", B:"对方"},
+      lines:[
+        {w:"A", en:"Hi, I'm Li Ming. Nice to meet you.", cn:"你好，我是李明，很高兴认识你。"},
+        {w:"B", en:"Nice to meet you too. I'm Anna.", cn:"我也很高兴，我是 Anna。"},
+        {w:"A", en:"Where are you from?", cn:"你来自哪里？"},
+        {w:"B", en:"I'm from Canada. And you?", cn:"我来自加拿大，你呢？"},
+        {w:"A", en:"I'm from China. I work in this office.", cn:"我来自中国，就在这间办公室工作。"},
+        {w:"B", en:"Great. See you tomorrow.", cn:"太好了，明天见。"}
+      ]},
+    {id:"shop", title:"买东西问价格", day:18,
+      scene:"你想买一件 T 恤，先问价格和尺码。",
+      roles:{A:"你", B:"店员"},
+      lines:[
+        {w:"A", en:"Excuse me, how much is this T-shirt?", cn:"请问这件 T 恤多少钱？"},
+        {w:"B", en:"It's twenty dollars.", cn:"二十美元。"},
+        {w:"A", en:"Do you have a larger size?", cn:"有大一号的吗？"},
+        {w:"B", en:"Yes, here you are.", cn:"有，给你。"},
+        {w:"A", en:"I'll take it. Can I pay by card?", cn:"我要了。可以刷卡吗？"},
+        {w:"B", en:"Sure. Please come this way.", cn:"当然，这边请。"}
+      ]},
+    {id:"lost", title:"听不懂怎么救场", day:19,
+      scene:"对方说得太快，你需要撑住场面，而不是愣住。",
+      roles:{A:"对方", B:"你"},
+      lines:[
+        {w:"A", en:"Are you coming to the meeting this afternoon?", cn:"你今天下午来开会吗？"},
+        {w:"B", en:"Sorry, I don't understand. Could you say that again?", cn:"抱歉我没听懂，你能再说一遍吗？"},
+        {w:"A", en:"Are you coming to the meeting?", cn:"你来开会吗？"},
+        {w:"B", en:"A little slower, please.", cn:"请慢一点。"},
+        {w:"A", en:"Meeting. This afternoon. Are you coming?", cn:"开会。今天下午。你来吗？"},
+        {w:"B", en:"Yes, I am. Thank you.", cn:"我来，谢谢。"}
+      ]},
+    {id:"cafe", title:"在咖啡店点单", day:27,
+      scene:"你走进一家咖啡店，店员先开口。",
+      roles:{A:"店员", B:"你"},
+      lines:[
+        {w:"A", en:"Hi, what can I get for you?", cn:"你好，需要点什么？"},
+        {w:"B", en:"I'd like a coffee, please.", cn:"我要一杯咖啡，谢谢。"},
+        {w:"A", en:"Small or large?", cn:"小杯还是大杯？"},
+        {w:"B", en:"Small, please. How much is it?", cn:"小杯。多少钱？"},
+        {w:"A", en:"Three dollars.", cn:"三美元。"},
+        {w:"B", en:"Here you are. Thank you.", cn:"给你。谢谢。"},
+        {w:"A", en:"Thank you. Have a nice day!", cn:"谢谢，祝你今天愉快！"}
+      ]},
+    {id:"way", title:"问路去地铁站", day:28,
+      scene:"你在街上找不到地铁站，拦住一位路人。",
+      roles:{A:"你", B:"路人"},
+      lines:[
+        {w:"A", en:"Excuse me, where is the subway station?", cn:"打扰一下，地铁站在哪里？"},
+        {w:"B", en:"Go straight and turn left at the bank.", cn:"直走，在银行那儿左转。"},
+        {w:"A", en:"Is it far from here?", cn:"离这儿远吗？"},
+        {w:"B", en:"No, about five minutes on foot.", cn:"不远，走路大约五分钟。"},
+        {w:"A", en:"Thank you so much.", cn:"太谢谢了。"},
+        {w:"B", en:"You're welcome.", cn:"不客气。"}
+      ]},
+    {id:"hotel", title:"酒店入住", day:29,
+      scene:"你到酒店前台办理入住，护照和早餐都要问清楚。",
+      roles:{A:"你", B:"前台"},
+      lines:[
+        {w:"A", en:"Hi, I have a reservation. My name is Li Ming.", cn:"你好，我订了房，名字是李明。"},
+        {w:"B", en:"May I see your passport, please?", cn:"可以看一下你的护照吗？"},
+        {w:"A", en:"Here you are. Is breakfast included?", cn:"给你。含早餐吗？"},
+        {w:"B", en:"Yes, from seven to ten.", cn:"含，早上七点到十点。"},
+        {w:"A", en:"What time is check-out?", cn:"几点退房？"},
+        {w:"B", en:"Before twelve. Enjoy your stay.", cn:"十二点前。祝你住得愉快。"}
+      ]}
+  ];
+
+  var PLAN = [
+    {t:"字母与四个单元音",f:"认清 26 个字母，学会 /iː/ /ɪ/ /e/ /æ/ 的嘴型，今天不背单词。",k:["听读 26 个字母 3 遍，边读边写","对着镜子练 /iː/ /ɪ/ /e/ /æ/，每个 10 次"]},
+    {t:"后元音 /ɑː/ /ʌ/ /ɔː/ /ʊ/",f:"嘴张大的音别害羞，声音要从口腔后部出来。",k:["练 /ɑː/ 和 /ʌ/ 的对比：heart / hut","练 /ɔː/ /ʊ/ 的对比：door / book"]},
+    {t:"长音与双元音 /uː/ /ə/ /ɜː/ /eɪ/",f:"/ə/ 是最省力的音，弱读音节几乎都是它。",k:["读 to-day、a-bout，体会弱读音节","练 /eɪ/：day、name、game 各 5 遍"]},
+    {t:"爆破辅音 /p/ /b/ /t/ /d/ /k/ /g/",f:"英语的 p/t/k 在词首要送气，像吹灭蜡烛。",k:["手放嘴前读 pen / ten / cat，感受气流","对比 bad / pad、dock / talk"]},
+    {t:"摩擦音与咬舌音 /f/ /v/ /s/ /z/ /θ/ /ð/",f:"咬舌音是中国人的第一道坎，舌尖必须露出来。",k:["对着镜子读 think、this，舌尖要可见","练 see / she 的区别，别混"]},
+    {t:"鼻音与流音 /m/ /n/ /ŋ/ /l/ /r/",f:"r 不卷舌，舌尖抬起但不碰到上颚。",k:["读 sing、sin、singing，体会 /ŋ/","练 red、road，舌尖别碰上颚"]},
+    {t:"第一周复盘：试着拼读",f:"今天的目标是「看到音标能读出来」，不要求快。",k:["用音标拼出 cat、sit、book、day","把 12 张音标卡全部过一遍"]},
+
+    {t:"生存词 1：礼貌与吃喝",f:"先学能救命、能马上用出去的字。",k:["学 hello / sorry / please / water 4 张卡","把 4 个词各造一个超短句"]},
+    {t:"生存词 2：方向与身份",f:"厕所、帮助、名字——这三件事每天都在用。",k:["学 toilet / help / home / name 4 张卡","大声问一次：Where is the toilet?"]},
+    {t:"动词：让句子动起来",f:"有动词才有句子，先记住 5 个万能动词。",k:["学 work / eat / want 3 张卡","把 want 套进 3 个句子：I want ..."]},
+    {t:"形容词与时间词",f:"good 和 today 是零基础最高频的两个词。",k:["学 good / today / tomorrow 3 张卡","说 3 句：Today is good. / Tomorrow I work."]},
+    {t:"数字 1-20 与时间",f:"价格、门牌、时间都要数字，今天只练听懂。",k:["跟读 1-20，重点 13-19 的重音","听写 5 个数字（可以自己录）"]},
+    {t:"人物称呼：家人、朋友",f:"称呼错了比语法错了更尴尬，先学对。",k:["学 friend 及家人称呼 4 个词","练介绍：This is my friend, Li Ming."]},
+    {t:"第二周复盘：用 18 个词说 5 句",f:"不查字典，只用已经学过的词，硬凑 5 句。",k:["用学过的词写 5 句话，读出声","把写不出的地方记下来，明天补"]},
+
+    {t:"自我介绍三句话",f:"三句话能撑起 80% 的初次见面。",k:["练 My name is ... / I'm from ... / I work in ...","录音听一遍，找出最别扭的一句"]},
+    {t:"打招呼与告别",f:"从 How are you 到 See you，形成条件反射。",k:["练 How are you? / I'm fine, thank you.","练 Good morning / See you tomorrow"]},
+    {t:"问路：Where is ...?",f:"最实用的一句，走到哪都能用。",k:["练 Where is the toilet / station / hotel?","记住 Excuse me 开头，礼貌分先拿到"]},
+    {t:"购物与点单",f:"How much 和 I'd like 是两个万能钥匙。",k:["练 How much is it?","练 I'd like a coffee, please."]},
+    {t:"听不懂怎么办：三句救场",f:"零基础最需要的不是说得对，而是能撑住场面。",k:["背下 I don't understand.","背下 Could you say that again?"]},
+    {t:"时间与约定",f:"约人、问时间，是最常见的真实场景。",k:["练 What time is it?","练 See you tomorrow / See you at six."]},
+    {t:"第三周复盘：8 个场景各说一遍",f:"每一个场景只说一句，但要说出口。",k:["把 8 个场景句连读一遍","录一段 1 分钟语音，自己听"]},
+
+    {t:"be 动词：am / is / are",f:"英语句子的地基，先把 I am 说顺。",k:["练 I am / You are / He is 各 5 遍","用 be 动词造 5 句介绍自己"]},
+    {t:"一般疑问句：Do you ...?",f:"问句靠调序，不靠加语气词。",k:["练 Do you like coffee? — Yes, I do.","把 3 个陈述句改成疑问句"]},
+    {t:"冠词 a / an / the",f:"a 是「某一个」，the 是「那个」，先会用 a。",k:["练 a cat / an apple / the cat","读例句，注意 a 和 an 的选择"]},
+    {t:"名词复数 -s / -es",f:"说「两个」的时候，别漏掉尾巴。",k:["练 two books / three boxes","把 5 个名词变复数并读出来"]},
+    {t:"现在进行时：be + doing",f:"描述「正在做」，是最好上手的时态。",k:["练 I am reading / She is working","用 3 张图片或场景口头描述"]},
+    {t:"否定句：don't / doesn't",f:"不会否定，就只会说 yes。",k:["练 I don't like ... / She doesn't like ...","把 3 个肯定句改成否定句"]},
+    {t:"完整对话：在咖啡店",f:"把前三周的东西拼成一段真实对话。",k:["完整念一遍点单对话 3 遍","不看稿子复述一遍，允许卡壳"]},
+    {t:"完整对话：问路去地铁站",f:"方向词 + 礼貌句 + 确认，三件套。",k:["完整念一遍问路对话 3 遍","闭眼想象自己在街上问一次"]},
+    {t:"30 天总复盘 + 第二阶段计划",f:"把 54 张卡过一遍，决定下一个 30 天学什么。",k:["翻一遍卡片库，标记还不熟的","写下第二阶段目标：听 / 说 / 读 / 写选一个"]}
+  ];
+
+  var STAGES = ["W1 发音","W2 高频词","W3 句型","W4 对话"];
+  var STAGE_SAMPLES = {
+    "1": ["I can see a tree.", "Sit down, please.", "Have a nice day."],
+    "2": ["I want some water.", "Where is the toilet?", "Can you help me?"],
+    "3": ["How are you? I'm fine, thank you.", "I'd like a coffee, please.", "See you tomorrow."],
+    "4": ["I am learning English.", "Do you like coffee?", "I am reading a book now."]
+  };
+  var TYPES = ["音标","单词","短语","句型","语法"];
+  var TYPE_CLASS = {"音标":"t1","单词":"t2","短语":"t3","句型":"t4","语法":"t5"};
+
+  var state = {
+    dash: null,
+    view: "today",
+    deck: {items:[], total:0, offset:0, keyword:"", type:"", stage:"", onlyDue:false},
+    review: {queue:[], idx:0, flipped:false, again:0, hard:0, good:0, finished:false},
+    leech: {cards:[], idx:0, mode:"list", flipped:false, cleared:0},
+    dialog: {id:"", mode:"read", role:"B", idx:0, reveal:false},
+    phGroup: null,
+    session: {reviews:0, newCards:0}
+  };
+
+  var $ = function(s,r){ return (r||document).querySelector(s); };
+  var $$ = function(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
+
+  function escapeHtml(s){
+    return String(s==null?"":s).replace(/[&<>"']/g,function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+    });
+  }
+  function toast(msg){
+    var el = $("#toast");
+    el.textContent = msg;
+    el.classList.add("on");
+    clearTimeout(el._t);
+    el._t = setTimeout(function(){ el.classList.remove("on"); }, 2200);
+  }
+  function wb(){
+    return (window.__SMART_PAGE__ && window.__SMART_PAGE__.workbench) || null;
+  }
+
+  function addDaysKey(key, n){
+    var d = new Date(key + "T00:00:00Z");
+    d.setUTCDate(d.getUTCDate() + n);
+    return d.toISOString().slice(0, 10);
+  }
+
+  function pendingList(){ return store(CACHE_KEYS.pending) || []; }
+  function queuePending(name, params){
+    var q = pendingList();
+    q.push({name:name, params:params, at:Date.now()});
+    store(CACHE_KEYS.pending, q);
+  }
+
+  function paintOffline(){
+    var el = $("#offline-bar");
+    if(!el) return;
+    var n = pendingList().length;
+    if(OFFLINE.on){
+      el.innerHTML = '<div class="banner" style="background:#fff8e8;border-color:#f6e0b0;color:#8a5a00">'
+        + '离线中：正在用上次同步的数据' + (n ? "，本机还有 " + n + " 条记录待同步" : "")
+        + '。联网后刷新会自动补上。</div>';
+      return;
+    }
+    if(n){
+      el.innerHTML = '<div class="banner" id="off-b" style="background:#eef4ff;border-color:#d6e2ff;color:#2f4a94;cursor:pointer">'
+        + '有 ' + n + ' 条记录还没同步，点这里补上</div>';
+      var b = $("#off-b");
+      if(b) b.onclick = flushByClick;
+      return;
+    }
+    el.innerHTML = "";
+  }
+
+  async function flushByClick(){
+    await flushPending();
+    try{ await loadDash(); renderView(); }catch(e){}
+  }
+
+  async function flushPending(){
+    var q = pendingList();
+    if(!q.length) return 0;
+    var rest = [];
+    var okCount = 0;
+    for(var i=0;i<q.length;i++){
+      try{ await call(q[i].name, q[i].params); okCount += 1; }
+      catch(e){ rest.push(q[i]); }
+    }
+    store(CACHE_KEYS.pending, rest);
+    toast(rest.length ? ("还有 " + rest.length + " 条没同步上，过会儿再试") : ("离线记录已同步 " + okCount + " 条"));
+    paintOffline();
+    return okCount;
+  }
+
+  async function call(name, params){
+    var api = wb();
+    if(!api){
+      OFFLINE.on = true;
+      throw new Error("当前环境未接入工作台，请在资料库中打开这个页面");
+    }
+    var payload = Object.assign({}, params||{});
+    if(DATE_TOOLS[name] && payload.date === undefined) payload.date = TODAY;
+    try{
+      var res = await api.callTool(name, payload);
+      if(res && res.isError) throw new Error("请求没有成功，请稍后重试");
+      if(OFFLINE.on){ OFFLINE.on = false; paintOffline(); }
+      return (res && res.structuredContent) || {};
+    }catch(err){
+      OFFLINE.on = true;
+      OFFLINE.reason = (err && err.message) || "网络不可用";
+      paintOffline();
+      throw err;
+    }
+  }
+  function store(key, val){
+    try{
+      if(val === undefined) return JSON.parse(localStorage.getItem(key) || "null");
+      localStorage.setItem(key, JSON.stringify(val));
+    }catch(e){ return null; }
+  }
+  function fmtDate(key){
+    var p = key.split("-");
+    return p[1].replace(/^0/,"")+"月"+p[2].replace(/^0/,"")+"日";
+  }
+  function dayOffset(key){
+    return Math.round((new Date(key+"T00:00:00Z").getTime() - new Date(TODAY+"T00:00:00Z").getTime())/86400000);
+  }
+  /* ---------------- audio ---------------- */
+  var AUDIO = {
+    src: store("enwb.asrc") || "real",        // real=词典真人音, tts=系统语音
+    rate: Number(store("enwb.arate") || 1)    // 1 或 0.6（真人音变速不变调）
+  };
+  var audioEl = null;
+  var playToken = 0;
+
+  // 有声词典音源：单词为真人录音，整句为其合成音（比系统默认自然）
+  function dictUrl(text){
+    return "https://dict.youdao.com/dictvoice?type=2&audio=" + encodeURIComponent(String(text));
+  }
+
+  function stopAudio(){
+    try{ if(audioEl){ audioEl.pause(); audioEl.removeAttribute("src"); audioEl = null; } }catch(e){}
+    try{ if(window.speechSynthesis) window.speechSynthesis.cancel(); }catch(e){}
+  }
+
+  function wait(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+
+  // 返回 Promise<boolean>：能否播出来
+  function playReal(text, rate){
+    return new Promise(function(resolve){
+      try{
+        stopAudio();
+        var el = document.createElement("audio");
+        audioEl = el;
+        if("preservesPitch" in el) el.preservesPitch = true;
+        else if("mozPreservesPitch" in el) el.mozPreservesPitch = true;
+        else if("webkitPreservesPitch" in el) el.webkitPreservesPitch = true;
+        el.preload = "auto";
+        el.playbackRate = rate || 1;
+        var settled = false;
+        function fin(ok){ if(settled) return; settled = true; resolve(ok); }
+        el.addEventListener("ended", function(){ fin(true); });
+        el.addEventListener("error", function(){ fin(false); });
+        setTimeout(function(){ if(!settled && el.readyState < 2) fin(false); }, 3200);
+        el.src = dictUrl(text);
+        var pr = el.play();
+        if(pr && pr.catch) pr.catch(function(){ fin(false); });
+      }catch(e){ resolve(false); }
+    });
+  }
+
+  function ttsVoice(){
+    var vs = (window.speechSynthesis && window.speechSynthesis.getVoices()) || [];
+    var prefer = ["Samantha","Ava","Allison","Alex","Google US English","Karen","Serena","Daniel"];
+    for(var i=0;i<prefer.length;i++){
+      var hit = null;
+      for(var j=0;j<vs.length;j++){
+        if(vs[j].name && vs[j].name.indexOf(prefer[i]) >= 0){ hit = vs[j]; break; }
+      }
+      if(hit) return hit;
+    }
+    var enUS = vs.filter(function(v){ return /^en[-_]US/i.test(v.lang); });
+    if(enUS.length) return enUS[0];
+    var en = vs.filter(function(v){ return /^en/i.test(v.lang); });
+    return en.length ? en[0] : null;
+  }
+
+  function playTTS(text, rate){
+    return new Promise(function(resolve){
+      if(!("speechSynthesis" in window) || !text){ resolve(false); return; }
+      try{
+        var u = new SpeechSynthesisUtterance(String(text));
+        u.lang = "en-US";
+        u.rate = Math.max(0.45, Math.min(1.1, (rate || 1) * 0.92));
+        var v = ttsVoice();
+        if(v) u.voice = v;
+        var settled = false;
+        function fin(ok){ if(settled) return; settled = true; resolve(ok); }
+        u.onend = function(){ fin(true); };
+        u.onerror = function(){ fin(false); };
+        setTimeout(function(){ fin(true); }, 12000);
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(u);
+      }catch(e){ resolve(false); }
+    });
+  }
+
+  // 统一入口：真人音优先，失败自动回落系统语音
+  function speak(text, rate){
+    if(!text) return Promise.resolve(false);
+    var r = rate === undefined ? AUDIO.rate : rate;
+    if(AUDIO.src === "real"){
+      return playReal(text, r).then(function(ok){
+        return ok ? true : playTTS(text, r);
+      });
+    }
+    return playTTS(text, r);
+  }
+
+  function wordsOf(text){
+    return String(text).replace(/[.,!?;:"“”'’]/g, " ").split(/\s+/).filter(Boolean);
+  }
+
+  // 拆词跟读：一个词一个词放，最后整句连起来
+  async function speakChunk(text){
+    var token = ++playToken;
+    var ws = wordsOf(text);
+    if(ws.length < 2){ await speak(text); return; }
+    for(var i=0;i<ws.length;i++){
+      if(token !== playToken) return;
+      await speak(ws[i]);
+      if(token !== playToken) return;
+      await wait(AUDIO.rate < 1 ? 560 : 420);
+    }
+    await wait(200);
+    if(token !== playToken) return;
+    await speak(text);
+  }
+
+  // 音标最小对立对：治"听不出区别"
+  var PAIRS = {
+    "iː": ["sheep","ship"], "ɪ": ["ship","sheep"],
+    "e": ["bed","bad"], "æ": ["bad","bed"],
+    "ɑː": ["cart","cut"], "ʌ": ["cut","cart"],
+    "ɔː": ["caught","cot"], "ʊ": ["full","fool"],
+    "uː": ["fool","full"], "ə": ["about","sofa"],
+    "ɜː": ["bird","bud"], "eɪ": ["day","die"]
+  };
+  var SAMPLES = {
+    "iː": "see", "ɪ": "sit", "e": "bed", "æ": "cat",
+    "ɑː": "car", "ʌ": "cup", "ɔː": "door", "ʊ": "book",
+    "uː": "food", "ə": "about", "ɜː": "bird", "eɪ": "day"
+  };
+  function ipaKey(card){
+    return String(card.ipa || card.content || "").replace(/[\/\[\]]/g, "").trim();
+  }
+  function sampleOf(card){
+    return SAMPLES[ipaKey(card)] || "";
+  }
+
+  function pairOf(card){
+    return PAIRS[ipaKey(card)] || null;
+  }
+
+  /* ---------------- 音标入门 ---------------- */
+  // [符号, 分组, 例词, 例词中文, 中文近似, 口型提示]
+  var PH_GROUPS = [
+    {name:"短元音", short:"短元音", sub:"7 个 · 第 1-2 天", days:"Day 1-2"},
+    {name:"长元音", short:"长元音", sub:"5 个 · 第 2-3 天", days:"Day 2-3"},
+    {name:"双元音", short:"双元音", sub:"8 个 · 第 3-4 天", days:"Day 3-4"},
+    {name:"爆破 + 摩擦", short:"爆破·摩擦", sub:"15 个 · 第 4-5 天", days:"Day 4-5"},
+    {name:"破擦 + 鼻音 + 半元音", short:"破擦·鼻音", sub:"13 个 · 第 5-6 天", days:"Day 5-6"}
+  ];
+  var PHONEMES = [
+    ["ɪ",0,"sit","坐","≈ 衣（短）","嘴角微开，舌头略后，短而松，千万别拖长"],
+    ["e",0,"bed","床","≈ 诶（扁）","嘴半开，下巴往下放一点，比 /ɪ/ 更低更开"],
+    ["æ",0,"cat","猫","啊与诶之间","嘴张大，下巴明显下降，舌尖抵下齿"],
+    ["ʌ",0,"cup","杯子","≈ 啊（短）","嘴自然张开，舌中部抬起，短促有力"],
+    ["ɒ",0,"hot","热","≈ 哦（圆短）","嘴唇略圆，舌位低而靠后，短"],
+    ["ʊ",0,"book","书","≈ 乌（短）","嘴唇收圆但放松，别噘太紧"],
+    ["ə",0,"about","关于","≈ 轻呃","最放松的音，嘴唇舌头都别用力，一带而过"],
+    ["iː",1,"see","看见","≈ 衣（长）","嘴角向两边拉开像微笑，拖两拍"],
+    ["ɑː",1,"car","汽车","≈ 啊（长）","嘴张大，舌后缩，声音在口腔后部"],
+    ["ɔː",1,"door","门","≈ 哦（长）","嘴唇圆而突出，舌后部抬起，拖长"],
+    ["uː",1,"food","食物","≈ 乌（长）","嘴唇收得很圆很小，舌后部抬高"],
+    ["ɜː",1,"bird","鸟","≈ 饿（长）","嘴半开，舌中部抬起，嘴唇不圆"],
+    ["eɪ",2,"day","天","诶 → 衣","从 /e/ 滑到 /ɪ/，前重后轻，只算一个音节"],
+    ["aɪ",2,"my","我的","啊 → 衣","从张大的 /a/ 滑向 /ɪ/，下巴由低到高"],
+    ["ɔɪ",2,"boy","男孩","哦 → 衣","从圆唇滑到扁唇，前半重"],
+    ["aʊ",2,"now","现在","啊 → 乌","从张大滑到圆唇，像被吓一跳的「嗷」"],
+    ["əʊ",2,"go","去","呃 → 乌","从放松的 /ə/ 收到圆唇，别读成「够」"],
+    ["ɪə",2,"here","这里","衣 → 呃","前重后轻，末尾轻带 /ə/，不要卷舌"],
+    ["eə",2,"hair","头发","诶 → 呃","从 /e/ 滑到 /ə/，嘴由半开变放松"],
+    ["ʊə",2,"tour","旅行","乌 → 呃","从圆唇滑到放松，口语里常简化成 /ɔː/"],
+    ["p",3,"pen","钢笔","≈ 泼（轻）","双唇闭紧再放开，送气要轻，别带「o」"],
+    ["b",3,"bag","包","≈ 波","双唇闭紧放开，声带振动，不送气"],
+    ["t",3,"ten","十","≈ 特（轻）","舌尖抵上齿龈再放开，送气轻"],
+    ["d",3,"dog","狗","≈ 得","舌尖抵上齿龈放开，声带振动"],
+    ["k",3,"key","钥匙","≈ 克（轻）","舌后部抵软腭放开，短促送气"],
+    ["ɡ",3,"go","去","≈ 哥","同 /k/ 的位置，加声带振动，不送气"],
+    ["f",3,"fish","鱼","咬唇的「夫」","上齿轻咬下唇，气流从缝里挤出来，声带不振动"],
+    ["v",3,"very","非常","咬唇带振动的「夫」","上齿咬下唇并振动声带，别读成 /w/"],
+    ["θ",3,"think","想","咬舌的「思」","舌尖轻放在上下齿之间，气流从舌齿间挤出"],
+    ["ð",3,"this","这个","咬舌的「兹」带振动","同 /θ/ 的位置，加上声带振动"],
+    ["s",3,"sun","太阳","≈ 思","舌尖靠近上齿龈，气流细而连续，不咬舌"],
+    ["z",3,"zoo","动物园","≈ 兹","同 /s/ 的位置，加声带振动"],
+    ["ʃ",3,"she","她","≈ 诗（圆唇）","嘴唇稍前突成圆形，舌面靠近硬腭"],
+    ["ʒ",3,"measure","测量","≈ 日（平舌）","同 /ʃ/ 的位置，加声带振动"],
+    ["h",3,"hat","帽子","≈ 喝（轻）","气流从喉咙轻轻呼出，别摩擦太重"],
+    ["tʃ",4,"chair","椅子","≈ 吃（轻）","/t/ 和 /ʃ/ 连成一个音，先堵住再摩擦"],
+    ["dʒ",4,"job","工作","≈ 知","同 /tʃ/ 的位置，加声带振动"],
+    ["tr",4,"tree","树","≈ 戳（卷舌）","/t/ 接 /r/ 连读，舌尖上卷"],
+    ["dr",4,"dream","梦","≈ 捉（卷舌）","同 /tr/ 的位置，加声带振动"],
+    ["ts",4,"cats","猫（复数）","≈ 次（轻）","/t/ 接 /s/ 快速连读，词尾最常见"],
+    ["dz",4,"beds","床（复数）","≈ 兹","/d/ 接 /z/ 连读，声带振动"],
+    ["m",4,"man","男人","≈ 嗯（闭唇）","双唇闭住，气流从鼻子出来"],
+    ["n",4,"no","不","≈ 嗯（舌尖）","舌尖抵上齿龈，气流从鼻子出来"],
+    ["ŋ",4,"sing","唱歌","≈ 嗯（喉部）","舌后部抵软腭，气流从鼻出，别在后面加 /ɡ/"],
+    ["l",4,"like","喜欢","≈ 了（舌尖抬）","舌尖抵上齿龈，气流从舌头两侧通过"],
+    ["r",4,"red","红色","≈ 若（卷舌不碰）","舌尖上卷但不碰上腭，嘴唇略圆"],
+    ["j",4,"yes","是","「耶」的起头","舌面抬向硬腭，快速滑向后面的元音"],
+    ["w",4,"we","我们","「乌」的起头","双唇收圆，快速滑开"]
+  ].map(function(a){ return {s:a[0], g:a[1], w:a[2], z:a[3], cn:a[4], tip:a[5]}; });
+
+  function phGot(){ return store("enwb.ph") || {}; }
+  function phCount(){
+    var o = phGot(), n = 0;
+    for(var i=0;i<PHONEMES.length;i++){ if(o[PHONEMES[i].s]) n++; }
+    return n;
+  }
+  function phGroupGot(gi){
+    var o = phGot(), n = 0, t = 0;
+    for(var i=0;i<PHONEMES.length;i++){
+      if(PHONEMES[i].g !== gi) continue;
+      t++;
+      if(o[PHONEMES[i].s]) n++;
+    }
+    return {got:n, total:t};
+  }
+  function phToggle(sym){
+    var o = phGot();
+    if(o[sym]) delete o[sym]; else o[sym] = 1;
+    store("enwb.ph", o);
+  }
+  function phPair(sym){
+    return PAIRS[sym] || null;
+  }
+
+  function paintAudioBar(){
+    $$("#audiobar [data-src]").forEach(function(b){
+      b.classList.toggle("on", b.getAttribute("data-src") === AUDIO.src);
+    });
+    $$("#audiobar [data-rate]").forEach(function(b){
+      b.classList.toggle("on", Number(b.getAttribute("data-rate")) === AUDIO.rate);
+    });
+  }
+
+  function bindAudioBar(){
+    $$("#audiobar [data-src]").forEach(function(b){
+      b.onclick = function(){
+        AUDIO.src = b.getAttribute("data-src");
+        store("enwb.asrc", AUDIO.src);
+        paintAudioBar();
+        toast(AUDIO.src === "real" ? "改用真人发音（需要联网）" : "改用系统语音（可离线）");
+      };
+    });
+    $$("#audiobar [data-rate]").forEach(function(b){
+      b.onclick = function(){
+        AUDIO.rate = Number(b.getAttribute("data-rate"));
+        store("enwb.arate", AUDIO.rate);
+        paintAudioBar();
+      };
+    });
+    var tryBtn = $("#ab-try");
+    if(tryBtn) tryBtn.onclick = function(){ speak("Where is the toilet?"); };
+    paintAudioBar();
+  }
+
+  /* ---------------- 跟读录音 ---------------- */
+  var REC = { stream: null, mr: null, chunks: [], url: "", btn: null, blocked: "" };
+
+  function recSupported(){
+    return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
+  }
+
+  function pickMime(){
+    var list = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4", "audio/aac", "audio/ogg"];
+    if(!window.MediaRecorder || !MediaRecorder.isTypeSupported) return "";
+    for(var i = 0; i < list.length; i++){
+      if(MediaRecorder.isTypeSupported(list[i])) return list[i];
+    }
+    return "";
+  }
+
+  // 先判断"能不能有麦克风"：预览容器（iframe）没给 allow="microphone" 时，
+  // 浏览器会直接拒绝，和用户自己的权限设置无关
+  function micBlockedReason(){
+    try{
+      if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) return "noapi";
+      var fp = document.featurePolicy || document.permissionsPolicy;
+      if(fp && fp.allowsFeature && !fp.allowsFeature("microphone")) return "policy";
+    }catch(e){}
+    return "";
+  }
+
+  function micErrorText(err){
+    var name = (err && err.name) || "";
+    var framed = window.self !== window.top;
+    if(name === "NotAllowedError" || name === "SecurityError"){
+      return framed
+        ? "这个预览窗口没有开放麦克风，不是你浏览器的设置问题"
+        : "浏览器拒绝了麦克风，去地址栏权限里允许后重试";
+    }
+    if(name === "NotFoundError" || name === "DevicesNotFoundError") return "没找到麦克风设备";
+    if(name === "NotReadableError") return "麦克风被别的程序占用了";
+    if(name === "AbortError") return "麦克风被系统打断了";
+    return "麦克风打不开" + (name ? "（" + name + "）" : "");
+  }
+
+  function shadowCount(){
+    return Number(store("enwb.shadow." + TODAY) || 0);
+  }
+
+  function bumpShadow(){
+    store("enwb.shadow." + TODAY, shadowCount() + 1);
+    paintRecLine();
+  }
+
+  function paintRecLine(msg){
+    var el = $("#rec-line");
+    if(!el) return;
+    if(msg){ el.textContent = msg; el.style.color = "var(--brand)"; return; }
+    el.style.color = "";
+    var n = shadowCount();
+    var tail = REC.blocked ? " · 这个窗口没开放麦克风，已用跟读节拍" : "";
+    el.textContent = (n ? "今天已跟读 " + n + " 句" : "点「跟读」：先听一遍，跟着读一遍") + tail;
+  }
+
+  // 麦克风不可用时的替代练法：示范 → 3 秒跟读窗口 → 再示范
+  async function shadowRead(text, why){
+    var token = ++playToken;
+    toast((why ? why + "，" : "") + "改用跟读节拍：听一遍，跟着读");
+    await speak(text);
+    if(token !== playToken) return;
+    for(var i = 3; i > 0; i--){
+      paintRecLine("跟着读　" + i + " …");
+      await wait(720);
+      if(token !== playToken){ paintRecLine(); return; }
+    }
+    await speak(text);
+    if(token !== playToken) return;
+    bumpShadow();
+    paintRecLine();
+    toast("读完这一句了。自己再念一遍，比多听十遍管用");
+  }
+
+  function releaseStream(){
+    try{ if(REC.stream) REC.stream.getTracks().forEach(function(t){ t.stop(); }); }catch(e){}
+    REC.stream = null;
+  }
+
+  async function toggleRec(text, btn){
+    if(REC.mr && REC.mr.state === "recording"){ stopRec(); return; }
+    var pre = micBlockedReason();
+    if(pre === "noapi"){
+      REC.blocked = "noapi";
+      await shadowRead(text, "这个浏览器不支持录音");
+      return;
+    }
+    if(pre === "policy"){
+      REC.blocked = "policy";
+      await shadowRead(text, "这个预览窗口没开放麦克风");
+      return;
+    }
+    try{
+      REC.stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    }catch(err){
+      REC.blocked = (err && err.name) || "error";
+      await shadowRead(text, micErrorText(err));
+      return;
+    }
+    REC.chunks = [];
+    REC.btn = btn;
+    var mime = pickMime();
+    try{
+      REC.mr = mime ? new window.MediaRecorder(REC.stream, { mimeType: mime }) : new window.MediaRecorder(REC.stream);
+    }catch(e){
+      toast("录音启动失败，换个浏览器试试");
+      releaseStream();
+      return;
+    }
+    REC.mr.ondataavailable = function(ev){ if(ev.data && ev.data.size) REC.chunks.push(ev.data); };
+    REC.mr.onstop = function(){ finishRec(text); };
+    REC.blocked = "";
+    paintRecLine();
+    REC.mr.start();
+    btn.setAttribute("data-label", btn.textContent);
+    btn.classList.add("mic-live");
+    btn.textContent = "● 停止";
+    setTimeout(function(){ if(REC.mr && REC.mr.state === "recording") stopRec(); }, 8000);
+    toast("开始录音，读完点「停止」");
+  }
+
+  function stopRec(){
+    try{ if(REC.mr && REC.mr.state === "recording") REC.mr.stop(); }catch(e){}
+  }
+
+  async function finishRec(text){
+    releaseStream();
+    if(REC.btn){
+      REC.btn.classList.remove("mic-live");
+      REC.btn.textContent = REC.btn.getAttribute("data-label") || "🎤 跟读";
+    }
+    if(!REC.chunks.length){ toast("没录到声音，再试一次"); return; }
+    if(REC.url){ try{ URL.revokeObjectURL(REC.url); }catch(e){} }
+    var type = REC.chunks[0].type || "audio/webm";
+    REC.url = URL.createObjectURL(new window.Blob(REC.chunks, { type: type }));
+    toast("示范 → 你的 → 示范，听听差别");
+    await speak(text);
+    await wait(320);
+    await playOwnRec();
+    await wait(280);
+    await speak(text);
+  }
+
+  function playOwnRec(){
+    return new Promise(function(resolve){
+      if(!REC.url){ resolve(false); return; }
+      try{
+        stopAudio();
+        var el = document.createElement("audio");
+        el.src = REC.url;
+        var settled = false;
+        var fin = function(v){ if(!settled){ settled = true; resolve(v); } };
+        el.addEventListener("ended", function(){ fin(true); });
+        el.addEventListener("error", function(){ fin(false); });
+        setTimeout(function(){ if(!settled && el.readyState < 1) fin(false); }, 2500);
+        var pr = el.play();
+        if(pr && pr.catch) pr.catch(function(){ fin(false); });
+      }catch(e){ resolve(false); }
+    });
+  }
+
+  function bindRecButtons(){
+    $$("[data-rec]").forEach(function(b){
+      b.addEventListener("click", function(e){
+        e.stopPropagation();
+        toggleRec(b.getAttribute("data-rec"), b);
+      });
+    });
+  }
+
+  /* ---------------- 学习计时 ---------------- */
+  var TIMER = { start: Number(store("enwb.tstart") || 0), h: null };
+
+  function timerElapsed(){
+    if(!TIMER.start) return 0;
+    var d = Date.now() - TIMER.start;
+    return (d > 0 && d < 8 * 3600 * 1000) ? d : 0;
+  }
+
+  function fmtClock(ms){
+    var total = Math.floor(ms / 1000);
+    var m = Math.floor(total / 60);
+    var sec = total % 60;
+    return (m < 10 ? "0" : "") + m + ":" + (sec < 10 ? "0" : "") + sec;
+  }
+
+  function paintTimer(){
+    var num = $("#timer-num");
+    if(!num) return;
+    var btn = $("#timer-btn");
+    var el = timerElapsed();
+    if(el > 0){
+      num.textContent = fmtClock(el);
+      if(btn) btn.textContent = "结束并填入";
+    }else{
+      num.textContent = "00:00";
+      if(btn) btn.textContent = "开始学习";
+    }
+  }
+
+  function toggleTimer(){
+    var el = timerElapsed();
+    if(el > 0){
+      var mins = Math.max(1, Math.round(el / 60000));
+      TIMER.start = 0;
+      store("enwb.tstart", 0);
+      var input = $("#lg-min");
+      if(input) input.value = mins;
+      paintTimer();
+      toast("已记下 " + mins + " 分钟，别忘点打卡保存");
+    }else{
+      TIMER.start = Date.now();
+      store("enwb.tstart", TIMER.start);
+      paintTimer();
+      toast("开始计时，学完再点一次");
+    }
+  }
+
+  function startTimerTick(){
+    if(TIMER.h) clearInterval(TIMER.h);
+    TIMER.h = setInterval(paintTimer, 1000);
+  }
+
+  /* ---------------- 辨音小测 ---------------- */
+  var QPAIRS = [["sheep","ship"],["bed","bad"],["cart","cut"],["caught","cot"],["full","fool"],["bird","bud"],["day","die"]];
+  var QUIZ = { qs: [], idx: 0, right: 0, wrongs: [], lock: false };
+
+  function shuffleArr(a){
+    for(var i = a.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function buildQuiz(n){
+    var pool = shuffleArr(QPAIRS.slice());
+    var qs = [];
+    for(var i = 0; i < n; i++){
+      var pair = pool[i % pool.length];
+      var flip = Math.random() < 0.5;
+      var opts = flip ? [pair[1], pair[0]] : [pair[0], pair[1]];
+      qs.push({ opts: opts, answer: Math.random() < 0.5 ? 0 : 1 });
+    }
+    return qs;
+  }
+
+  function resetQuiz(){
+    QUIZ = { qs: buildQuiz(10), idx: 0, right: 0, wrongs: [], lock: false };
+  }
+
+  function renderQuiz(){
+    if(!QUIZ.qs.length) resetQuiz();
+    var q = QUIZ.qs[QUIZ.idx];
+    if(!q){ paintQuizEnd(); return; }
+    var view = $("#view");
+    var pct = Math.round(QUIZ.idx / QUIZ.qs.length * 100);
+    var optsHtml = q.opts.map(function(w, i){
+      return '<button class="btn full qopt" data-i="' + i + '">' + String.fromCharCode(65 + i) + ' · ' + escapeHtml(w) + '</button>';
+    }).join("");
+    view.innerHTML = '<div class="flash-wrap"><div class="panel">'
+      + '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px">'
+      +   '<div class="muted" style="font-size:12.5px">第 ' + (QUIZ.idx + 1) + ' / ' + QUIZ.qs.length + ' 题</div>'
+      +   '<div class="muted" style="font-size:12px">答对 ' + QUIZ.right + '</div>'
+      + '</div>'
+      + '<div class="progress-line"><i style="width:' + pct + '%"></i></div>'
+      + '<div style="text-align:center;padding:14px 0 4px">'
+      +   '<div style="font-size:15px;font-weight:600">你听到的是哪一个？</div>'
+      +   '<div style="font-size:12.5px;color:var(--muted);margin:5px 0 13px">听不清就点「再听」，别靠猜</div>'
+      +   '<button class="btn primary" id="q-play">🔊 再听一遍</button>'
+      + '</div>'
+      + '<div style="display:flex;flex-direction:column;gap:9px;margin-top:16px">' + optsHtml + '</div>'
+      + '<div id="q-fb" style="min-height:24px;text-align:center;font-size:13.5px;margin-top:12px"></div>'
+      + '<div style="text-align:center;margin-top:4px"><button class="btn sm" id="q-back">退出小测</button></div>'
+      + '</div></div>';
+    $("#q-play").onclick = function(){ speak(q.opts[q.answer]); };
+    $("#q-back").onclick = function(){ switchView("today"); };
+    $$(".qopt").forEach(function(b){
+      b.onclick = function(){ answerQuiz(Number(b.getAttribute("data-i"))); };
+    });
+    speak(q.opts[q.answer]);
+  }
+
+  async function answerQuiz(pick){
+    if(QUIZ.lock) return;
+    var q = QUIZ.qs[QUIZ.idx];
+    if(!q) return;
+    QUIZ.lock = true;
+    var ok = (pick === q.answer);
+    var heard = q.opts[q.answer];
+    var fb = $("#q-fb");
+    if(ok){
+      QUIZ.right += 1;
+      if(fb) fb.innerHTML = '<span style="color:var(--green)">✔ 听对了，是 ' + escapeHtml(heard) + '</span>';
+    }else{
+      QUIZ.wrongs.push(heard + " ≠ " + q.opts[pick]);
+      if(fb) fb.innerHTML = '<span style="color:var(--rose)">✘ 听到的是 ' + escapeHtml(heard) + '</span>';
+      speak(heard, 0.6);
+    }
+    await wait(ok ? 800 : 1500);
+    QUIZ.idx += 1;
+    QUIZ.lock = false;
+    renderQuiz();
+  }
+
+  function paintQuizEnd(){
+    var total = QUIZ.qs.length;
+    var pct = total ? Math.round(QUIZ.right / total * 100) : 0;
+    store("enwb.quiz." + TODAY, {right: QUIZ.right, total: total, rate: pct});
+    var tips = "";
+    if(QUIZ.wrongs.length){
+      tips = '<div style="text-align:left;background:#fdf3f4;border-radius:12px;padding:11px 13px;font-size:12.5px;color:#8e3a47;margin-bottom:16px">'
+        + '<b>这几组你还没分开：</b><br>' + QUIZ.wrongs.map(function(w){ return escapeHtml(w); }).join("<br>")
+        + '</div>';
+    }else{
+      tips = '<div style="text-align:left;background:var(--green-soft);border-radius:12px;padding:11px 13px;font-size:12.5px;color:#0b6b52;margin-bottom:16px">'
+        + '全对。明天换一批再练，连续三天全对就说明耳朵过关了。</div>';
+    }
+    $("#view").innerHTML = '<div class="flash-wrap"><div class="panel" style="text-align:center;padding:34px 22px">'
+      + '<div style="font-size:13px;color:var(--muted);margin-bottom:6px">这一轮辨音</div>'
+      + '<div class="quizbig">' + QUIZ.right + ' / ' + total + '　' + pct + '%</div>'
+      + '<div style="height:16px"></div>'
+      + tips
+      + '<div style="display:flex;gap:9px;justify-content:center">'
+      +   '<button class="btn" id="q-again">再练一轮</button>'
+      +   '<button class="btn primary" id="q-done">回今日</button>'
+      + '</div></div></div>';
+    $("#q-again").onclick = function(){ resetQuiz(); renderQuiz(); };
+    $("#q-done").onclick = function(){ switchView("today"); };
+  }
+
+  /* ---------------- dashboard ---------------- */
+  async function loadDash(){
+    try{
+      state.dash = await call("get_dashboard", {date: TODAY});
+      store(CACHE_KEYS.dash, state.dash);
+    }catch(e){
+      var cached = store(CACHE_KEYS.dash);
+      if(!cached || !cached.stats) throw e;
+      state.dash = cached;
+      OFFLINE.on = true;
+    }
+    paintChips();
+    paintOffline();
+  }
+
+  function paintChips(){
+    var d = state.dash;
+    if(!d || !d.stats) return;
+    $("#chip-streak").innerHTML = "🔥 连续 <b>" + (d.stats.streak || 0) + "</b> 天";
+    $("#chip-date").innerHTML = "<b>" + fmtDate(TODAY) + "</b> · Day " + Math.min(d.dayIndex||1,30) + "/30";
+  }
+
+  function planOf(dayIndex){
+    var i = Math.min(Math.max(dayIndex||1,1),30) - 1;
+    return PLAN[i];
+  }
+  function taskState(date){
+    return store("enwb.tasks."+date) || [];
+  }
+  function setTaskState(date, arr){
+    store("enwb.tasks."+date, arr);
+  }
+
+  /* ---------------- today view ---------------- */
+  function renderToday(){
+    var d = state.dash;
+    var dayIdx = Math.min(d.dayIndex || 1, 30);
+    var plan = planOf(dayIdx);
+    var stageIdx = String(Math.min(4, Math.ceil(dayIdx / 7)));
+    var sayings = STAGE_SAMPLES[stageIdx] || STAGE_SAMPLES["1"];
+    var sayingsHtml = sayings.map(function(s){
+      return '<div class="sayrow">'
+        + '<div class="saytext">' + escapeHtml(s) + '</div>'
+        + '<div class="saybtns">'
+        +   '<button class="btn sm" data-speak="' + escapeHtml(s) + '">朗读</button>'
+        +   '<button class="btn sm" data-chunk="' + escapeHtml(s) + '">拆词</button>'
+        +   '<button class="btn sm" data-rec="' + escapeHtml(s) + '">跟读</button>'
+        + '</div>'
+        + '</div>';
+    }).join("");
+    var tasks = plan.k.concat([
+      "复习今天到期的 " + d.stats.due + " 张卡片",
+      "跟读 5 分钟：把今天的例句读出声",
+      "演 1 段场景对话（对话标签）"
+    ]);
+    var done = taskState(TODAY);
+    while(done.length < tasks.length) done.push(false);
+    done = done.slice(0, tasks.length);
+    var doneCount = done.filter(Boolean).length;
+    var pct = Math.round(doneCount / tasks.length * 100);
+    var C = 2*Math.PI*41;
+    var offset = C - C*Math.min(pct,100)/100;
+
+    var log = d.todayLog;
+    var reviewCount = state.session.reviews || (log ? log.reviews : 0);
+    var leechN = (d.stats && d.stats.leech) ? d.stats.leech : 0;
+    var rec = recommendDialog();
+    var dlgN = dlgDoneToday().length;
+    var capNow = (d.stats && d.stats.dailyCap) ? d.stats.dailyCap : DAILY_CAP;
+    var addedNow = (d.stats && d.stats.todayAdded) ? d.stats.todayAdded : 0;
+    var phN = phCount();
+
+    var tasksHtml = tasks.map(function(t,i){
+      return '<div class="task' + (done[i]?" done":"") + '" data-task="' + i + '">'
+        + '<div class="box"><svg width="11" height="11" viewBox="0 0 12 12"><path d="M2 6.2L4.6 8.8 10 3.4" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
+        + '<div class="tx">' + escapeHtml(t) + '</div>'
+        + '</div>';
+    }).join("");
+
+    var html = ''
+    + '<section class="hero">'
+    +   '<div style="position:relative;z-index:1">'
+    +     '<span class="pill">DAY ' + dayIdx + ' / 30 · 第 ' + Math.ceil(dayIdx/7) + ' 周</span>'
+    +     '<h2>' + escapeHtml(plan.t) + '</h2>'
+    +     '<p>' + escapeHtml(plan.f) + '</p>'
+    +   '</div>'
+    +   '<div class="ring">'
+    +     '<svg width="96" height="96" viewBox="0 0 96 96">'
+    +       '<circle cx="48" cy="48" r="41" fill="none" stroke="rgba(255,255,255,.24)" stroke-width="7"/>'
+    +       '<circle cx="48" cy="48" r="41" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"'
+    +         ' stroke-dasharray="' + C.toFixed(1) + '" stroke-dashoffset="' + offset.toFixed(1) + '"/>'
+    +     '</svg>'
+    +     '<div class="val">' + pct + '%<small>今日完成</small></div>'
+    +   '</div>'
+    + '</section>'
+    + '<div class="grid2">'
+    +   '<div class="stack">'
+    +     '<div class="panel">'
+    +       '<h2><span class="dot"></span>今日任务</h2>'
+    +       tasksHtml
+    +       (doneCount === tasks.length
+            ? '<div style="margin-top:14px;background:var(--green-soft);color:#0b6b52;border-radius:11px;padding:10px 13px;font-size:13px">今天的任务全部完成了，去打个卡把它记下来。</div>'
+            : '')
+    +     '</div>'
+    +     '<div class="panel">'
+    +       '<h2><span class="dot"></span>今日开口练习</h2>'
+    +       '<div class="muted" style="font-size:13px;line-height:1.8;margin-bottom:8px">先点朗读听一遍，再自己读一遍。读错不要紧，出声最重要。</div>'
+    +       '<div class="recline" id="rec-line"></div>'
+    +       sayingsHtml
+    +     '</div>'
+    +   '</div>'
+    +   '<div class="stack">'
+    +     '<div class="panel">'
+    +       '<h2><span class="dot"></span>今天要复习</h2>'
+    +       '<div class="due-strip" style="margin-bottom:14px">'
+    +         '<div class="n">' + d.stats.due + '<small> 张到期</small></div>'
+    +         '<div class="muted" style="font-size:12px">共 ' + d.stats.total + ' 张卡片</div>'
+    +       '</div>'
+    +       '<button class="btn primary full" id="go-review">' + (d.stats.due ? "开始复习" : "去学新卡片") + '</button>'
+    +     '</div>'
+    +     '<div class="panel">'
+    +       '<h2><span class="dot"></span>' + (phN >= 48 ? "音标已过一遍" : "音标还没学完") + '</h2>'
+    +       '<div class="ph-head" style="margin-bottom:6px">'
+    +         '<div class="big" style="font-size:24px">' + phN + '<small> / 48</small></div>'
+    +         '<div class="muted" style="font-size:11.5px;text-align:right">' + (phN >= 48 ? "都勾完了" : "不会写符号没关系") + '</div>'
+    +       '</div>'
+    +       '<div class="progress-line" style="margin-bottom:12px"><i style="width:' + Math.round(phN / 48 * 100) + '%"></i></div>'
+    +       '<div class="muted" style="font-size:12.5px;line-height:1.8;margin-bottom:12px">不熟音标就从这里进：先听出 ship 和 sheep 的差别，能读出来就算会，符号记不住可以随时回来查。</div>'
+    +       '<button class="btn full" id="go-phonics">' + (phN ? "继续练音标" : "从 7 个短元音开始") + '</button>'
+    +     '</div>'
+    +     '<div class="panel">'
+    +       '<h2><span class="dot"></span>3 分钟辨音</h2>'
+    +       '<div class="muted" style="font-size:12.5px;line-height:1.8;margin-bottom:12px">10 道题，听发音选词。ship 和 sheep 听不出来，是零基础听力最大的坎，练三天就有感觉。</div>'
+    +       '<button class="btn full" id="go-quiz">开始小测</button>'
+    +     '</div>'
+    +     '<div class="panel">'
+    +       '<h2><span class="dot"></span>今日场景对话</h2>'
+    +       '<div class="muted" style="font-size:12.5px;line-height:1.8;margin-bottom:10px">' + escapeHtml(rec.title) + '：先跟读，再演一遍。句子放进场景里才记得住。</div>'
+    +       (dlgN ? '<div class="muted" style="font-size:12px;color:var(--green);margin-bottom:8px">今天已演 ' + dlgN + ' 段</div>' : '')
+    +       '<button class="btn full" id="go-dialog">开始演练</button>'
+    +     '</div>'
+    +     (leechN
+          ? '<div class="panel">'
+            + '<h2><span class="dot"></span>弱项池</h2>'
+            + '<div class="due-strip" style="margin-bottom:10px">'
+            +   '<div class="n" style="color:var(--rose)">' + leechN + '<small> 张反复忘</small></div>'
+            + '</div>'
+            + '<div class="muted" style="font-size:12.5px;line-height:1.8;margin-bottom:14px">这些卡忘了 2 次以上。今天别再加新卡，把它们单独练一遍更划算。</div>'
+            + '<button class="btn full" id="go-leech">去练弱项</button>'
+            + '</div>'
+          : '')
+    +     '<div class="panel">'
+    +       '<h2><span class="dot"></span>' + (log ? "今日已打卡" : "今日打卡") + '</h2>'
+    +       '<div class="timerbox">'
+    +         '<div style="flex:1"><div class="tlabel">学习计时</div><div class="tnum" id="timer-num">00:00</div></div>'
+    +         '<button class="btn sm" id="timer-btn">开始学习</button>'
+    +       '</div>'
+    +       '<div class="field"><label>学习时长（分钟）</label>'
+    +         '<input type="number" id="lg-min" min="0" step="5" value="' + (log ? log.minutes : 20) + '"></div>'
+    +       '<div class="row">'
+    +         '<div class="field"><label>新学卡片</label><input type="number" id="lg-new" min="0" value="' + (log ? log.newCards : state.session.newCards || 0) + '"></div>'
+    +         '<div class="field"><label>复习卡片</label><input type="number" id="lg-rev" min="0" value="' + (log ? log.reviews : reviewCount) + '"></div>'
+    +       '</div>'
+    +       '<div class="field"><label>完成度</label><select id="lg-done">'
+    +         '<option' + (log && log.done === "部分完成" ? "" : " selected") + '>全部完成</option>'
+    +         '<option' + (log && log.done === "部分完成" ? " selected" : "") + '>部分完成</option>'
+    +       '</select></div>'
+    +       '<div class="field"><label>今天最想说的一句话（可不填）</label>'
+    +         '<textarea id="lg-note" placeholder="例：终于分清 /iː/ 和 /ɪ/ 了">' + escapeHtml(log ? log.note : "") + '</textarea></div>'
+    +       '<button class="btn primary full" id="save-log">' + (log ? "更新打卡" : "打卡") + '</button>'
+    +     '</div>'
+    +   '</div>'
+    + '</div>';
+
+    $("#view").innerHTML = html;
+
+    $$("[data-task]").forEach(function(el){
+      el.addEventListener("click", function(){
+        var i = Number(el.getAttribute("data-task"));
+        var arr = taskState(TODAY);
+        while(arr.length < tasks.length) arr.push(false);
+        arr[i] = !arr[i];
+        setTaskState(TODAY, arr);
+        renderToday();
+      });
+    });
+    $$("[data-speak]").forEach(function(b){
+      b.addEventListener("click", function(e){ e.stopPropagation(); speak(b.getAttribute("data-speak")); });
+    });
+    $$("[data-chunk]").forEach(function(b){
+      b.addEventListener("click", function(e){ e.stopPropagation(); speakChunk(b.getAttribute("data-chunk")); });
+    });
+    bindRecButtons();
+    paintRecLine();
+    var tbtn = $("#timer-btn");
+    if(tbtn) tbtn.onclick = toggleTimer;
+    paintTimer();
+    startTimerTick();
+    var gq = $("#go-quiz");
+    if(gq) gq.onclick = function(){ resetQuiz(); switchView("quiz"); };
+    var gd = $("#go-dialog");
+    if(gd) gd.onclick = function(){ startDialog(rec.id); };
+    var gl = $("#go-leech");
+    if(gl) gl.onclick = function(){ switchView("leech"); };
+    var gp = $("#go-phonics");
+    if(gp) gp.onclick = function(){ switchView("phonics"); };
+    $("#go-review").addEventListener("click", function(){ switchView("review"); });
+    $("#save-log").addEventListener("click", saveLog);
+  }
+
+  async function saveLog(){
+    var btn = $("#save-log");
+    btn.disabled = true; btn.textContent = "保存中…";
+    try{
+      var qz = quizToday();
+      await call("save_daily_log", {
+        date: TODAY,
+        minutes: Number($("#lg-min").value || 0),
+        newCards: Number($("#lg-new").value || 0),
+        reviews: Number($("#lg-rev").value || 0),
+        done: $("#lg-done").value,
+        note: $("#lg-note").value || "",
+        quizRate: qz ? qz.rate : 0,
+        dialogues: dlgDoneToday().length,
+        shadows: shadowCount()
+      });
+      await loadDash();
+      renderToday();
+      toast("打卡已记录，明天继续");
+    }catch(e){
+      toast(e.message || "保存失败");
+      btn.disabled = false; btn.textContent = "打卡";
+    }
+  }
+
+  /* ---------------- review view ---------------- */
+  async function renderReview(){
+    var view = $("#view");
+    view.innerHTML = '<div class="flash-wrap"><div class="skel" style="height:290px"></div></div>';
+    try{
+      var data = await call("get_review_queue", {date: TODAY, limit: 30});
+      state.review = {queue: data.cards || [], idx:0, flipped:false, again:0, hard:0, good:0, finished:false, total: data.total};
+      store(CACHE_KEYS.queue, data.cards || []);
+    }catch(e){
+      var cachedQ = store(CACHE_KEYS.queue);
+      if(!cachedQ || !cachedQ.length){
+        view.innerHTML = '<div class="empty"><div class="ic">⚠️</div>' + escapeHtml(e.message) + '</div>';
+        return;
+      }
+      state.review = {queue: cachedQ, idx:0, flipped:false, again:0, hard:0, good:0, finished:false, total: cachedQ.length};
+      if(!OFFLINE.on){ OFFLINE.on = true; paintOffline(); }
+    }
+    paintReview();
+  }
+
+  function paintReview(){
+    var r = state.review;
+    var view = $("#view");
+    if(!r.queue.length){
+      view.innerHTML = '<div class="flash-wrap"><div class="panel" style="text-align:center;padding:46px 24px">'
+        + '<div style="font-size:34px;margin-bottom:10px">🌤</div>'
+        + '<div style="font-size:16px;font-weight:600;margin-bottom:6px">今天没有到期的卡片</div>'
+        + '<div class="muted" style="font-size:13px;margin-bottom:18px">艾宾浩斯告诉我：休息也是学习的一部分。</div>'
+        + '<div style="display:flex;gap:9px;justify-content:center;flex-wrap:wrap">'
+        + '<button class="btn" id="to-deck">去卡片库加几张</button>'
+        + '<button class="btn primary" id="to-today">回今日任务</button></div>'
+        + '</div></div>';
+      $("#to-deck").onclick = function(){ switchView("deck"); };
+      $("#to-today").onclick = function(){ switchView("today"); };
+      return;
+    }
+    if(r.idx >= r.queue.length || r.finished){ paintSummary(); return; }
+
+    var c = r.queue[r.idx];
+    var total = r.queue.length;
+    var pct = Math.round(r.idx / total * 100);
+    var dots = "";
+    for(var i=0;i<6;i++){ dots += '<i class="' + (i < c.level ? "on" : "") + '"></i>'; }
+
+    var back = r.flipped;
+    var pair = (!back && c.type === "音标") ? pairOf(c) : null;
+    var sample = (!back && c.type === "音标") ? sampleOf(c) : "";
+    var speakTarget = sample || c.content;
+    var pairHtml = pair
+      ? '<div class="pairbox">'
+        + '<div class="plabel">辨音对比（零基础最容易混）：A、B 各听一遍，再听一遍找差别</div>'
+        + '<div class="prow">'
+        +   '<button class="speak" data-pair="' + escapeHtml(pair[0]) + '">A · ' + escapeHtml(pair[0]) + '</button>'
+        +   '<button class="speak" data-pair="' + escapeHtml(pair[1]) + '">B · ' + escapeHtml(pair[1]) + '</button>'
+        + '</div></div>'
+      : '';
+    var html = '<div class="flash-wrap">'
+      + '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px">'
+      +   '<div class="muted" style="font-size:12.5px">第 ' + (r.idx+1) + ' / ' + total + ' 张</div>'
+      +   '<div style="display:flex;gap:12px;font-size:12px;color:var(--muted)">'
+      +     '<span>忘记 ' + r.again + '</span><span>模糊 ' + r.hard + '</span><span>记得 ' + r.good + '</span>'
+      +   '</div>'
+      + '</div>'
+      + '<div class="progress-line"><i style="width:' + pct + '%"></i></div>'
+      + '<div class="flash" id="flash">'
+      +   '<div class="badge">' + escapeHtml(c.type || "卡片") + (c.stage ? " · " + escapeHtml(c.stage) : "") + '</div>'
+      +   '<div class="lv">' + dots + '</div>'
+      +   (back
+            ? '<div class="mean">' + escapeHtml(c.meaning) + '</div>'
+              + (c.example ? '<div class="ex"><b>' + escapeHtml(c.example) + '</b>' + escapeHtml(c.exampleCn) + '</div>' : '')
+              + '<div class="hint">点卡片可翻回正面</div>'
+            : '<div class="word">' + escapeHtml(c.content) + '</div>'
+              + (c.ipa ? '<div class="ipa">' + escapeHtml(c.ipa) + '</div>' : '')
+              + (sample ? '<div class="sampleword">例词：<b>' + escapeHtml(sample) + '</b></div>' : '')
+              + '<div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">'
+              +   '<button class="speak" id="play">🔊 ' + (sample ? '听 ' + escapeHtml(sample) : '听发音') + '</button>'
+              +   (c.example ? '<button class="speak" id="play-ex">整句</button>' : '')
+              +   (c.example ? '<button class="speak" id="play-chunk">拆词</button>' : '')
+              +   '<button class="speak" data-rec="' + escapeHtml(speakTarget) + '">🎤 跟读</button>'
+              + '</div>'
+              + pairHtml
+              + '<div class="hint">点击卡片看中文</div>')
+      + '</div>'
+      + (back
+          ? '<div class="grades">'
+            + '<button class="grade g1" data-g="again">忘了<small>今天再来</small></button>'
+            + '<button class="grade g2" data-g="hard">勉强<small>短期再见</small></button>'
+            + '<button class="grade g3" data-g="good">记得<small>按计划复习</small></button>'
+            + '</div>'
+          : '<div style="margin-top:16px;display:flex;gap:9px">'
+            + '<button class="btn full" id="flip">看中文 / 看提示</button>'
+            + '<button class="btn primary" id="flip2" style="flex:0 0 auto">我认得</button>'
+            + '</div>')
+      + '</div>';
+
+    view.innerHTML = html;
+    $("#flash").addEventListener("click", function(e){
+      if(e.target.closest(".speak")) return;
+      state.review.flipped = !state.review.flipped;
+      paintReview();
+    });
+    var play = $("#play");
+    if(play) play.addEventListener("click", function(e){ e.stopPropagation(); speak(speakTarget); });
+    var playEx = $("#play-ex");
+    if(playEx) playEx.addEventListener("click", function(e){ e.stopPropagation(); speak(c.example); });
+    var playChunk = $("#play-chunk");
+    if(playChunk) playChunk.addEventListener("click", function(e){ e.stopPropagation(); speakChunk(c.example); });
+    $$("[data-pair]").forEach(function(b){
+      b.addEventListener("click", function(e){
+        e.stopPropagation();
+        speakChunkOnPair(b.getAttribute("data-pair"));
+      });
+    });
+    bindRecButtons();
+    if(!back){
+      $("#flip").onclick = function(){ state.review.flipped = true; paintReview(); };
+      $("#flip2").onclick = function(){ grade("good"); };
+    } else {
+      $$("[data-g]").forEach(function(b){
+        b.onclick = function(){ grade(b.getAttribute("data-g")); };
+      });
+    }
+  }
+
+  // 辨音对比：先正常念一次，稍停，再慢速念一次
+  async function speakChunkOnPair(word){
+    await speak(word);
+    await wait(320);
+    await speak(word, 0.6);
+  }
+
+  async function grade(g){
+    var r = state.review;
+    var c = r.queue[r.idx];
+    if(!c) return;
+    if(g === "again") r.again++; else if(g === "hard") r.hard++; else r.good++;
+    state.session.reviews += 1;
+    r.idx += 1;
+    r.flipped = false;
+    paintReview();
+    var payload = {date: TODAY, recordId: c.id, level: c.level, grade: g, lapses: c.lapses || 0};
+    try{
+      var res = await call("review_card", payload);
+      if(res && res.leech) toast("这张进弱项池了，之后单独练");
+    }catch(e){
+      queuePending("review_card", payload);
+      paintOffline();
+      toast("这张先记在本机，联网后自动同步");
+    }
+  }
+
+  function paintSummary(){
+    var r = state.review;
+    var html = '<div class="flash-wrap"><div class="panel" style="text-align:center;padding:40px 24px">'
+      + '<div style="font-size:34px;margin-bottom:8px">🎉</div>'
+      + '<div style="font-size:17px;font-weight:650;margin-bottom:4px">这一轮复习完成了</div>'
+      + '<div class="muted" style="font-size:13px;margin-bottom:20px">记住的会按 1 / 2 / 4 / 7 天自动安排下次复习</div>'
+      + '<div style="display:flex;gap:10px;justify-content:center;margin-bottom:22px">'
+      +   '<div><div class="big-num" style="color:var(--rose)">' + r.again + '</div><div class="muted" style="font-size:12px">忘记</div></div>'
+      +   '<div style="width:1px;background:var(--line)"></div>'
+      +   '<div><div class="big-num" style="color:var(--amber)">' + r.hard + '</div><div class="muted" style="font-size:12px">勉强</div></div>'
+      +   '<div style="width:1px;background:var(--line)"></div>'
+      +   '<div><div class="big-num" style="color:var(--green)">' + r.good + '</div><div class="muted" style="font-size:12px">记得</div></div>'
+      + '</div>'
+      + '<div style="text-align:left;background:var(--brand-soft);border-radius:12px;padding:12px 14px;font-size:13px;color:#3f3a8f;margin-bottom:20px">'
+      +   '复习了 ' + (r.again + r.hard + r.good) + ' 张，记得回「今日」把打卡补上，连续记录比一次学很多更重要。'
+      + '</div>'
+      + '<div style="display:flex;gap:9px;justify-content:center;flex-wrap:wrap">'
+      +   '<button class="btn" id="again-round">再来一轮</button>'
+      +   '<button class="btn primary" id="to-today-2">去打卡</button>'
+      + '</div></div></div>';
+    $("#view").innerHTML = html;
+    $("#again-round").onclick = function(){ renderReview(); };
+    $("#to-today-2").onclick = function(){ switchView("today"); };
+  }
+
+  /* ---------------- deck view ---------------- */
+  async function renderDeck(){
+    var view = $("#view");
+    view.innerHTML = '<div class="skel" style="height:70px;margin-bottom:12px"></div>'
+      + '<div class="skel" style="height:260px"></div>';
+    var st = state.deck;
+    try{
+      var data = await call("list_cards", {
+        date: TODAY, keyword: st.keyword, type: st.type, stage: st.stage,
+        onlyDue: st.onlyDue, offset: st.offset, limit: 20
+      });
+      st.items = data.cards || [];
+      st.total = data.total || 0;
+    }catch(e){
+      view.innerHTML = '<div class="empty">' + escapeHtml(e.message) + '</div>';
+      return;
+    }
+    paintDeck();
+  }
+
+  function paintDeck(){
+    var st = state.deck;
+    var typeChips = ['<button class="fchip' + (st.type === "" ? " on" : "") + '" data-t="">全部</button>']
+      .concat(TYPES.map(function(t){
+        return '<button class="fchip' + (st.type === t ? " on" : "") + '" data-t="' + t + '">' + t + '</button>';
+      })).join("");
+
+    var capMax = (state.dash && state.dash.stats && state.dash.stats.dailyCap) ? state.dash.stats.dailyCap : DAILY_CAP;
+    var capAdded = (state.dash && state.dash.stats && state.dash.stats.todayAdded) ? state.dash.stats.todayAdded : 0;
+    var capPct = Math.min(100, Math.round(capAdded / capMax * 100));
+    var capHtml = '<div class="capbar' + (capAdded >= capMax ? " warn" : "") + '">'
+      + '<span>今日新卡 ' + capAdded + ' / ' + capMax + '</span>'
+      + '<span class="track"><i style="width:' + capPct + '%"></i></span>'
+      + '<span>' + (capAdded >= capMax ? "到上限了，明天再加" : "还能加 " + (capMax - capAdded) + " 张") + '</span>'
+      + '</div>';
+
+    var rows = st.items.map(function(c){
+      var dueLabel = !c.due ? "待安排" : (c.due <= TODAY ? "今天到期" : fmtDate(c.due));
+      var dueCls = (c.due && c.due <= TODAY) ? " due-txt now" : " due-txt";
+      var dots = "";
+      for(var i=0;i<6;i++){ dots += '<i class="' + (i < c.level ? "on" : "") + '"></i>'; }
+      return '<div class="card-row">'
+        + '<div class="main">'
+        +   '<div class="c1">' + escapeHtml(c.content)
+        +     '<span class="tag ' + (TYPE_CLASS[c.type] || "") + '">' + escapeHtml(c.type || "卡片") + '</span>'
+        +   '</div>'
+        +   '<div class="c2">' + escapeHtml(c.meaning) + (c.ipa ? " · " + escapeHtml(c.ipa) : "") + '</div>'
+        + '</div>'
+        + '<div class="dots">' + dots + '</div>'
+        + '<div class="' + dueCls.slice(1) + '">' + escapeHtml(dueLabel) + '</div>'
+        + '<button class="ico-btn" data-edit="' + escapeHtml(c.id) + '" title="编辑">'
+        +   '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20h4l10-10-4-4L4 16v4z"/></svg>'
+        + '</button>'
+        + '<button class="ico-btn" data-del="' + escapeHtml(c.id) + '" title="删除">'
+        +   '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M5 7h14M9 7V5h6v2M7 7l1 13h8l1-13"/></svg>'
+        + '</button>'
+        + '</div>';
+    }).join("");
+
+    var html = '<div class="panel">'
+      + '<div class="toolbar">'
+      +   '<input type="text" id="q" placeholder="搜索单词、释义或音标" value="' + escapeHtml(st.keyword) + '">'
+      +   typeChips
+      +   '<button class="fchip' + (st.onlyDue ? " on" : "") + '" id="due-toggle">只看今天到期</button>'
+      +   '<div style="flex:1"></div>'
+      +   '<button class="btn primary sm" id="add">+ 新增卡片</button>'
+      + '</div>'
+      + capHtml
+      + '<div class="sec-title">共 ' + st.total + ' 张，当前显示 ' + st.items.length + ' 张</div>'
+      + (st.items.length ? rows : '<div class="empty"><div class="ic">🗂</div>没有符合条件的卡片</div>')
+      + (st.offset + st.items.length < st.total
+          ? '<button class="btn full" id="more" style="margin-top:14px">加载更多</button>' : '')
+      + '</div>';
+
+    $("#view").innerHTML = html;
+
+    $("#q").addEventListener("input", function(e){
+      clearTimeout(window.__qt);
+      window.__qt = setTimeout(function(){
+        state.deck.keyword = e.target.value.trim();
+        state.deck.offset = 0;
+        renderDeck();
+      }, 320);
+    });
+    $$("[data-t]").forEach(function(b){
+      b.onclick = function(){ state.deck.type = b.getAttribute("data-t"); state.deck.offset = 0; renderDeck(); };
+    });
+    $("#due-toggle").onclick = function(){ state.deck.onlyDue = !state.deck.onlyDue; state.deck.offset = 0; renderDeck(); };
+    $("#add").onclick = function(){ openEditor(null); };
+    var more = $("#more");
+    if(more) more.onclick = function(){ state.deck.offset += 20; renderDeck(); };
+    $$("[data-edit]").forEach(function(b){
+      b.onclick = function(){
+        var id = b.getAttribute("data-edit");
+        var card = state.deck.items.filter(function(x){ return x.id === id; })[0];
+        openEditor(card);
+      };
+    });
+    $$("[data-del]").forEach(function(b){
+      b.onclick = function(){ confirmDelete(b.getAttribute("data-del")); };
+    });
+  }
+
+  function openEditor(card){
+    var isNew = !card;
+    var c = card || {content:"",meaning:"",type:"单词",stage:"W2 高频词",ipa:"",example:"",exampleCn:""};
+    var root = $("#modal-root");
+    root.innerHTML = '<div class="mask" id="mask"><div class="modal">'
+      + '<h3>' + (isNew ? "新增卡片" : "编辑卡片") + '</h3>'
+      + '<div class="field"><label>英文内容 *</label><input type="text" id="f-content" value="' + escapeHtml(c.content) + '" placeholder="例：Where is the toilet?"></div>'
+      + '<div class="field"><label>中文释义</label><input type="text" id="f-meaning" value="' + escapeHtml(c.meaning) + '" placeholder="例：洗手间在哪里？"></div>'
+      + '<div class="row">'
+      +   '<div class="field"><label>类型</label><select id="f-type">'
+      +     TYPES.map(function(t){ return '<option' + (c.type === t ? " selected" : "") + '>' + t + '</option>'; }).join("")
+      +   '</select></div>'
+      +   '<div class="field"><label>阶段</label><select id="f-stage">'
+      +     STAGES.map(function(t){ return '<option' + (c.stage === t ? " selected" : "") + '>' + t + '</option>'; }).join("")
+      +   '</select></div>'
+      + '</div>'
+      + '<div class="field"><label>音标</label><input type="text" id="f-ipa" value="' + escapeHtml(c.ipa) + '" placeholder="例：/weə ɪz ðə ˈtɔɪlət/"></div>'
+      + '<div class="field"><label>例句</label><input type="text" id="f-ex" value="' + escapeHtml(c.example) + '"></div>'
+      + '<div class="field"><label>例句翻译</label><input type="text" id="f-excn" value="' + escapeHtml(c.exampleCn) + '"></div>'
+      + '<div class="foot"><button class="btn ghost" id="cancel">取消</button><button class="btn primary" id="ok">' + (isNew ? "创建" : "保存") + '</button></div>'
+      + '</div></div>';
+    $("#cancel").onclick = function(){ root.innerHTML = ""; };
+    $("#mask").addEventListener("click", function(e){ if(e.target.id === "mask") root.innerHTML = ""; });
+    $("#ok").onclick = async function(){
+      var content = $("#f-content").value.trim();
+      if(!content){ toast("英文内容不能为空"); return; }
+      var payload = {
+        content: content,
+        meaning: $("#f-meaning").value.trim(),
+        type: $("#f-type").value,
+        stage: $("#f-stage").value,
+        ipa: $("#f-ipa").value.trim(),
+        example: $("#f-ex").value.trim(),
+        exampleCn: $("#f-excn").value.trim()
+      };
+      var btn = $("#ok");
+      btn.disabled = true; btn.textContent = "保存中…";
+      try{
+        if(isNew){
+          var addRes = await call("add_card", Object.assign({date: TODAY}, payload));
+          if(addRes && addRes.capped){
+            root.innerHTML = "";
+            askOverCap(payload);
+            return;
+          }
+          state.session.newCards += 1;
+        } else {
+          await call("update_card", Object.assign({recordId: c.id}, payload));
+        }
+        root.innerHTML = "";
+        toast(isNew ? "已加入卡片库，今天就能复习" : "已保存");
+        await loadDash();
+        renderDeck();
+      }catch(e){
+        toast(e.message || "保存失败");
+        btn.disabled = false; btn.textContent = isNew ? "创建" : "保存";
+      }
+    };
+  }
+
+  function askOverCap(payload){
+    var root = $("#modal-root");
+    var capMax = (state.dash && state.dash.stats && state.dash.stats.dailyCap) ? state.dash.stats.dailyCap : DAILY_CAP;
+    root.innerHTML = '<div class="mask" id="mask"><div class="modal">'
+      + '<h3>今天已经加了 ' + capMax + ' 张新卡</h3>'
+      + '<div class="muted" style="font-size:13px;line-height:1.85">零基础一天 5-8 张最稳。加得越多，第二天到期的越多，很容易一断就放弃。</div>'
+      + '<div class="muted" style="font-size:13px;line-height:1.85;margin-top:8px">建议先记在纸上或手机备忘录，明天再加进来。</div>'
+      + '<div class="foot"><button class="btn ghost" id="cancel">明天再说</button><button class="btn" id="ok">仍然添加</button></div>'
+      + '</div></div>';
+    $("#cancel").onclick = function(){ root.innerHTML = ""; };
+    $("#mask").addEventListener("click", function(e){ if(e.target.id === "mask") root.innerHTML = ""; });
+    $("#ok").onclick = async function(){
+      root.innerHTML = "";
+      try{
+        await call("add_card", Object.assign({date: TODAY, force: true}, payload));
+        state.session.newCards += 1;
+        toast("已加入，这张明天就会到期");
+        await loadDash();
+        renderDeck();
+      }catch(e){ toast(e.message || "保存失败"); }
+    };
+  }
+
+  function confirmDelete(id){
+    var root = $("#modal-root");
+    root.innerHTML = '<div class="mask" id="mask"><div class="modal">'
+      + '<h3>删除这张卡片？</h3>'
+      + '<div class="muted" style="font-size:13px">删除后复习记录一起消失，且不能恢复。</div>'
+      + '<div class="foot"><button class="btn ghost" id="cancel">先不删</button><button class="btn" id="ok" style="background:#fdeef0;border-color:#f6d4d8;color:#b23a48">确认删除</button></div>'
+      + '</div></div>';
+    $("#cancel").onclick = function(){ root.innerHTML = ""; };
+    $("#mask").addEventListener("click", function(e){ if(e.target.id === "mask") root.innerHTML = ""; });
+    $("#ok").onclick = async function(){
+      try{
+        await call("delete_card", {recordId: id});
+        root.innerHTML = "";
+        toast("已删除");
+        await loadDash();
+        renderDeck();
+      }catch(e){ toast(e.message || "删除失败"); }
+    };
+  }
+
+  /* ---------------- progress view ---------------- */
+  function renderProgress(){
+    var d = state.dash;
+    var s = d.stats;
+    var maxMin = Math.max.apply(null, d.last14.map(function(x){ return x.minutes; }).concat([20]));
+    var bars = d.last14.map(function(x){
+      var h = Math.round(x.minutes / maxMin * 100);
+      return '<div class="b"><i class="' + (x.minutes ? "" : "zero") + '" style="height:' + Math.max(h, 3) + '%" title="' + x.date + " · " + x.minutes + ' 分钟"></i>'
+        + '<span>' + (x.minutes || "") + '</span></div>';
+    }).join("");
+
+    var total = Math.max(d.stats.total, 1);
+    var lvNames = ["未开始","刚接触","有印象","记住了","较熟练","熟练","长记忆"];
+    var lvRows = d.levelDist.map(function(n, i){
+      return '<div class="lv-row"><div class="lb">' + lvNames[i] + '</div>'
+        + '<div class="track"><i style="width:' + Math.round(n/total*100) + '%"></i></div>'
+        + '<div class="n">' + n + '</div></div>';
+    }).join("");
+
+    var recent = (d.recentLogs || []).map(function(l){
+      return '<tr><td>' + fmtDate(l.date) + '</td><td>' + l.minutes + ' 分钟</td><td>+' + l.newCards + ' / 复习 ' + l.reviews + '</td><td>' + escapeHtml(l.done) + '</td></tr>';
+    }).join("") || '<tr><td colspan="4" class="muted">还没有打卡记录</td></tr>';
+
+    var html = '<div class="kpi">'
+      + '<div class="cell"><div class="lb">卡片总数</div><div class="big-num">' + s.total + '</div><div class="sub">已掌握 ' + s.mastered + ' 张</div></div>'
+      + '<div class="cell"><div class="lb">今天到期</div><div class="big-num">' + s.due + '</div><div class="sub">按艾宾浩斯安排</div></div>'
+      + '<div class="cell"><div class="lb">连续打卡</div><div class="big-num">' + s.streak + '<small style="font-size:13px;font-weight:400"> 天</small></div><div class="sub">累计打卡 ' + d.finishedDays + ' 天</div></div>'
+      + '<div class="cell"><div class="lb">累计投入</div><div class="big-num">' + s.totalMinutes + '<small style="font-size:13px;font-weight:400"> 分钟</small></div><div class="sub">复习 ' + s.totalReviews + ' 张次</div></div>'
+      + '<div class="cell"><div class="lb">弱项卡</div><div class="big-num" style="color:var(--rose)">' + (s.leech || 0) + '</div><div class="sub">忘了 2 次以上</div></div>'
+      + '<div class="cell"><div class="lb">今日新卡</div><div class="big-num">' + (s.todayAdded || 0) + '<small style="font-size:13px;font-weight:400"> / ' + (s.dailyCap || DAILY_CAP) + '</small></div><div class="sub">每天不超过 ' + (s.dailyCap || DAILY_CAP) + ' 张</div></div>'
+      + '</div>'
+      + '<div class="grid2">'
+      +   '<div class="panel"><h2><span class="dot"></span>最近 14 天学习时长</h2>'
+      +     '<div class="bars">' + bars + '</div>'
+      +     '<div class="muted" style="font-size:11.5px;margin-top:8px">柱子上方数字为当天分钟数，空柱子代表没打卡</div>'
+      +   '</div>'
+      +   '<div class="panel"><h2><span class="dot"></span>掌握程度分布</h2>'
+      +     '<div class="lv-list">' + lvRows + '</div>'
+      +     '<div class="muted" style="font-size:11.5px;margin-top:12px">熟练度到 4 级以上，才算真正「会了」</div>'
+      +   '</div>'
+      + '</div>'
+      + '<div class="panel" style="margin-top:16px"><h2><span class="dot"></span>练习数据</h2>'
+      +   (function(){
+            var tl = d.todayLog || {};
+            var qz = tl.quizRate || (quizToday() ? quizToday().rate : 0);
+            var dlgN = dlgDoneToday().length;
+            var shN = shadowCount();
+            var pend = pendingList().length;
+            return '<div class="kpi" style="margin-bottom:0">'
+              + '<div class="cell"><div class="lb">辨音正确率</div><div class="big-num">' + qz + '<small style="font-size:13px;font-weight:400"> %</small></div><div class="sub">今天的小测</div></div>'
+              + '<div class="cell"><div class="lb">场景对话</div><div class="big-num">' + dlgN + '<small style="font-size:13px;font-weight:400"> 段</small></div><div class="sub">今天演过</div></div>'
+              + '<div class="cell"><div class="lb">跟读</div><div class="big-num">' + shN + '<small style="font-size:13px;font-weight:400"> 句</small></div><div class="sub">今天出声读过</div></div>'
+              + '<div class="cell"><div class="lb">待同步</div><div class="big-num">' + pend + '</div><div class="sub">离线记录</div></div>'
+              + '</div>';
+          })()
+      + '</div>'
+      + '<div class="panel" style="margin-top:16px"><h2><span class="dot"></span>最近打卡记录</h2>'
+      +   '<table class="tbl"><thead><tr><th>日期</th><th>时长</th><th>卡片</th><th>完成度</th></tr></thead><tbody>' + recent + '</tbody></table>'
+      + '</div>';
+
+    $("#view").innerHTML = html;
+  }
+
+  /* ---------------- guide view ---------------- */
+  /* ---------------- 音标入门 ---------------- */
+  async function playPhPair(sym){
+    var pr = phPair(sym);
+    if(!pr){ return; }
+    toast("先听 " + pr[0] + "，再听 " + pr[1] + "，注意区别");
+    await speak(pr[0]);
+    await wait(300);
+    await speak(pr[1]);
+    await wait(460);
+    await speak(pr[0]);
+    await wait(300);
+    await speak(pr[1]);
+  }
+
+  function renderPhonics(){
+    var gi = state.phGroup;
+    if(typeof gi !== "number"){
+      gi = 0;
+      for(var i=0;i<PH_GROUPS.length;i++){
+        var gg = phGroupGot(i);
+        if(gg.got < gg.total){ gi = i; break; }
+        gi = 0;
+      }
+      state.phGroup = gi;
+    }
+    var got = phCount(), total = PHONEMES.length;
+    var pct = Math.round(got / total * 100);
+    var gil = phGroupGot(gi);
+    var list = PHONEMES.filter(function(p){ return p.g === gi; });
+    var gotMap = phGot();
+
+    var tabsHtml = PH_GROUPS.map(function(g,i){
+      var s = phGroupGot(i);
+      return '<button class="ph-gtab' + (i === gi ? " on" : "") + '" data-phg="' + i + '">'
+        + escapeHtml(g.short) + " " + s.got + "/" + s.total + '</button>';
+    }).join("");
+
+    var cardsHtml = list.map(function(p){
+      var ok = !!gotMap[p.s];
+      var pr = phPair(p.s);
+      return '<div class="ph-card' + (ok ? " got" : "") + '">'
+        + (ok ? '<span class="ok">✓</span>' : "")
+        + '<div class="sym">' + escapeHtml(p.s) + '</div>'
+        + '<span class="cn">' + escapeHtml(p.cn) + '</span>'
+        + '<div class="word">' + escapeHtml(p.w) + '<span class="wz">' + escapeHtml(p.z) + '</span></div>'
+        + '<div class="tip">' + escapeHtml(p.tip) + '</div>'
+        + '<div class="acts">'
+        +   '<button class="btn" data-speak="' + escapeHtml(p.w) + '">听例词</button>'
+        +   '<button class="btn" data-rec="' + escapeHtml(p.w) + '">跟读</button>'
+        +   (pr ? '<button class="btn" data-phpair="' + escapeHtml(p.s) + '">辨</button>' : "")
+        +   '<button class="btn" data-phmark="' + escapeHtml(p.s) + '">' + (ok ? "取消" : "我会了") + '</button>'
+        + '</div>'
+        + '</div>';
+    }).join("");
+
+    var html = '<div class="panel">'
+      + '<div class="ph-head">'
+      +   '<div class="big">' + got + '<small> / ' + total + ' 已掌握</small></div>'
+      +   '<div class="muted" style="font-size:12px;text-align:right">不会写符号没关系<br>能听出来、能发出来就算会</div>'
+      + '</div>'
+      + '<div class="progress-line"><i style="width:' + pct + '%"></i></div>'
+      + '<div class="note" style="background:var(--brand-soft);border-left:3px solid var(--brand);padding:11px 14px;border-radius:0 10px 10px 0;font-size:13px;color:#3f3a8f;line-height:1.75">'
+      +   '音标不是要背的字母表，是一套「怎么发音」的说明书。零基础最快的一条路：<b>先只学短元音 7 个</b>，把 sit / bed / cat / cup / hot / book / about 听准读准，剩下的都是在这基础上加减。'
+      + '</div>'
+      + '<div class="sec-title" style="margin-bottom:8px">每天只练一组，练完勾「我会了」；5 组走完一遍大约 6 天</div>'
+      + '<div class="ph-groups">' + tabsHtml + '</div>'
+      + '<div class="muted" style="font-size:12px;margin-bottom:4px">'
+      +   escapeHtml(PH_GROUPS[gi].name) + ' · 本组 ' + gil.got + '/' + gil.total + ' · ' + escapeHtml(PH_GROUPS[gi].sub)
+      + '</div>'
+      + '<div class="recline" id="rec-line" style="margin-bottom:10px"></div>'
+      + '<div class="ph-grid">' + cardsHtml + '</div>'
+      + '<div class="divider"></div>'
+      + '<h3 style="font-size:14px;margin:0 0 8px">一个字都不会读的时候，跟着这个顺序走</h3>'
+      + '<ul class="guide" style="padding-left:18px;margin:0">'
+      +   '<li style="font-size:13px;color:var(--ink2);line-height:1.8"><b>1. 先听</b>：点「听例词」，把 7 个短元音听一遍。听不懂也没关系，先让耳朵熟悉。</li>'
+      +   '<li style="font-size:13px;color:var(--ink2);line-height:1.8"><b>2. 再对比</b>：有「辨」按钮的音，点一下会连着放两个容易混的词（比如 ship / sheep），听 3 遍再跟读。</li>'
+      +   '<li style="font-size:13px;color:var(--ink2);line-height:1.8"><b>3. 后跟读</b>：点「跟读」，先听示范，跟着节拍读一遍。读错不会有任何惩罚，出声就算成功。</li>'
+      +   '<li style="font-size:13px;color:var(--ink2);line-height:1.8"><b>4. 最后勾</b>：能听出区别、能读出来，就点「我会了」。不确定就先留着，明天再来。</li>'
+      + '</ul>'
+      + '<div class="note" style="background:#fff9ec;border-left:3px solid var(--amber);padding:11px 14px;border-radius:0 10px 10px 0;font-size:12.5px;color:#7a5300;margin:14px 0 0;line-height:1.7">'
+      +   '不用怕记混。中文里没有 /θ/ /ð/ /ɪ/ 这些音，一开始分不清是正常的——这不是你笨，是母语里没有这个格子。练到能听出差别就够了，符号记不住可以随时回来查。'
+      + '</div>'
+      + '</div>';
+
+    $("#view").innerHTML = html;
+
+    $$("[data-phg]").forEach(function(b){
+      b.onclick = function(){
+        state.phGroup = Number(b.getAttribute("data-phg"));
+        renderPhonics();
+      };
+    });
+    $$("[data-speak]").forEach(function(b){
+      b.onclick = function(e){ e.stopPropagation(); speak(b.getAttribute("data-speak")); };
+    });
+    $$("[data-phpair]").forEach(function(b){
+      b.onclick = function(e){ e.stopPropagation(); playPhPair(b.getAttribute("data-phpair")); };
+    });
+    $$("[data-phmark]").forEach(function(b){
+      b.onclick = function(e){
+        e.stopPropagation();
+        var sym = b.getAttribute("data-phmark");
+        var wasOn = !!phGot()[sym];
+        phToggle(sym);
+        renderPhonics();
+        toast(wasOn ? "已取消 " + sym : "记下了 " + sym + "，这个音算你的了");
+      };
+    });
+    bindRecButtons();
+    paintRecLine();
+  }
+
+  function renderGuide(){
+    var rows = PLAN.map(function(p,i){
+      return '<tr><td>Day ' + (i+1) + '</td><td>' + escapeHtml(p.t) + '</td></tr>';
+    }).join("");
+    var html = '<div class="panel guide">'
+      + '<h3>零基础最该先做的事：先「听得出」，再「说得出」</h3>'
+      + '<p>大部分零基础的人从背单词开始，结果能看懂却听不懂、开不了口。英语是拼音文字，第一步应该是让耳朵和嘴巴认识声音——所以这个工作台第 1 周只做音标和字母，第 2 周才进单词。</p>'
+      + '<div class="note">每天 20 分钟，比周末突击 3 小时有效得多。这个工作台的连续打卡天数，比卡片总数更值得在意。</div>'
+      + '<h3>不熟音标怎么办</h3>'
+      + '<p>不用先把 48 个符号背下来。音标只是告诉你「嘴怎么摆」的说明书，正确顺序是：<b>先听得出区别 → 再照着口型发出来 → 最后才记符号</b>。符号记不住完全不影响你说英语，听不出区别才会真的卡住。</p>'
+      + '<p>工作台里的「音标入门」把 48 个音分成 5 组，每天只练一组、8 分钟，练完一组就一个个勾掉。每组都有例词真人音、口型提示，容易混的音还能点「辨」连着放两遍对比。</p>'
+      + '<div class="note">如果只肯先学一点点，就学 <b>7 个短元音</b>：/ɪ/ /e/ /æ/ /ʌ/ /ɒ/ /ʊ/ /ə/。它们占了日常单词的一大半，长元音是它们的「加长版」，双元音是它们的「滑动版」。</div>'
+      + '<p><button class="btn primary" id="guide-phonics">打开音标入门（48 个 · 分 6 天）</button></p>'
+      + '<h3>每天 20 分钟怎么分配</h3>'
+      + '<ul>'
+      +   '<li><b>5 分钟跟读</b>：把今天的例句大声读出来，读错也没关系，先让嘴巴动起来。</li>'
+      +   '<li><b>10 分钟卡片</b>：先复习到期的旧卡，再学 4-8 张新卡。不要贪多。</li>'
+      +   '<li><b>5 分钟输出</b>：用今天学过的词，说 3 句和自己有关的话，写在打卡的「心得」里。</li>'
+      + '</ul>'
+      + '<h3>复习节奏是怎么安排的</h3>'
+      + '<p>每张卡片评分后会进入间隔复习：记得就打 1 天，再记得 2 天、4 天、7 天、15 天、30 天；忘了就回到今天重来。这样你每天只需要看「到期」的那几张，不用一遍遍翻全部。</p>'
+      + '<h3>30 天路线图</h3>'
+      + '<table class="tbl"><thead><tr><th>时间</th><th>主题</th></tr></thead><tbody>' + rows + '</tbody></table>'
+      + '<h3>5 个最容易踩的坑</h3>'
+      + '<ul>'
+      +   '<li><b>只背不用</b>：每个词至少说一句和自己有关的话，否则记不住。</li>'
+      +   '<li><b>追求一次记住</b>：遗忘是正常的，靠复习次数解决，不靠意志力。</li>'
+      +   '<li><b>一开始就学语法体系</b>：先有 50 个能用的句子，再回头看语法，效率高得多。</li>'
+      +   '<li><b>怕说错</b>：记住那句 <b>I\'m learning English.</b>，说错时它就是你的免死金牌。</li>'
+      +   '<li><b>资料收集癖</b>：收藏 20 个 app 不如把这一套卡片刷完。</li>'
+      + '</ul>'
+      + '<h3>免费资源（按顺序用，不要同时开三个）</h3>'
+      + '<ul>'
+      +   '<li><b>发音</b>：BBC Learning English 的发音入门视频，跟着口型练。</li>'
+      +   '<li><b>听力</b>：从「慢速英语」开始，每天 5 分钟，听懂 60% 就够。</li>'
+      +   '<li><b>跟读</b>：用手机自带语音朗读，读一句跟一句，比看视频有效。</li>'
+      + '</ul>'
+      + '<h3>弱项池：反复忘的卡要单独处理</h3>'
+      + '<p>一张卡评「忘了」累计 2 次，会自动进「弱项池」。这里不推新卡，只做认读：看英文想中文，认得就移出，认不得就留着。反复忘通常不是复习不够，而是没有一个能挂住的钩子——给它造一个和你有关的短句。</p>'
+      + '<h3>对话演练：把句子放进场景</h3>'
+      + '<p>「对话」标签里有 6 段真实场景：见面、买东西、听不懂救场、点单、问路、住酒店。先用「跟读」把每句念顺，再用「角色扮演」盖住英文说一遍。两个角色都演过，才算真的会。</p>'
+      + '<h3>每天最多加 8 张新卡</h3>'
+      + '<p>零基础最容易一天加 50 张，然后第三天全崩。到 8 张会拦一下，想加要再确认一次。新卡少而稳，比多而乱有用得多。</p>'
+      + '<h3>离线与同步</h3>'
+      + '<p>页面会缓存上次同步的数据。断网时仍能刷卡、评分，评分先存在本机，联网后自动补上；卡片库、打卡这类必须联网的操作会提示失败。</p>'
+      + '<div class="note">这份指南会一直在「入门指南」标签里。等你走完 30 天，可以回来把它改成第二阶段（比如每天 10 分钟听力 + 一段真实对话）。</div>'
+      + '</div>';
+    $("#view").innerHTML = html;
+    var gph = $("#guide-phonics");
+    if(gph) gph.onclick = function(){ switchView("phonics"); };
+  }
+
+  /* ---------------- 弱项池 ---------------- */
+  async function renderLeech(){
+    var view = $("#view");
+    view.innerHTML = '<div class="skel" style="height:88px;margin-bottom:12px"></div><div class="skel" style="height:250px"></div>';
+    var cards = [];
+    try{
+      var data = await call("list_cards", {date: TODAY, leechOnly: true, limit: 50});
+      cards = data.cards || [];
+      store(CACHE_KEYS.cards, cards);
+    }catch(e){
+      cards = store(CACHE_KEYS.cards) || [];
+      OFFLINE.on = true;
+      paintOffline();
+    }
+    state.leech = {cards: cards, idx: 0, mode: "list", flipped: false, cleared: 0};
+    paintLeech();
+  }
+
+  function paintLeech(){
+    var st = state.leech;
+    var view = $("#view");
+    if(!st.cards.length){
+      view.innerHTML = '<div class="flash-wrap"><div class="panel" style="text-align:center;padding:44px 22px">'
+        + '<div style="font-size:32px;margin-bottom:8px">🌱</div>'
+        + '<div style="font-size:16px;font-weight:600">弱项池是空的</div>'
+        + '<div class="muted" style="font-size:13px;margin:8px 0 18px;line-height:1.8">卡片评「忘了」累计 2 次，会自动进到这里。现在没有，说明还没有反复卡住的卡。</div>'
+        + '<button class="btn primary" id="l-back">回今日</button></div></div>';
+      $("#l-back").onclick = function(){ switchView("today"); };
+      return;
+    }
+    if(st.mode === "drill"){
+      var c = st.cards[st.idx];
+      if(!c){ st.mode = "list"; paintLeech(); return; }
+      var sample = sampleOf(c);
+      var target = sample || c.content;
+      view.innerHTML = '<div class="flash-wrap"><div class="panel" style="padding:16px 0 0">'
+        + '<div style="display:flex;justify-content:space-between;align-items:center;padding:0 18px">'
+        +   '<div class="muted" style="font-size:12.5px">弱项 ' + (st.idx + 1) + ' / ' + st.cards.length + '</div>'
+        +   '<div class="tag leech">忘了 ' + c.lapses + ' 次</div>'
+        + '</div>'
+        + '<div class="flash" id="flash" style="box-shadow:none;border:0">'
+        +   '<div class="badge">' + escapeHtml(c.type || "卡片") + '</div>'
+        +   (st.flipped
+              ? '<div class="mean">' + escapeHtml(c.meaning) + '</div>'
+                + (c.example ? '<div class="ex"><b>' + escapeHtml(c.example) + '</b>' + escapeHtml(c.exampleCn) + '</div>' : '')
+                + '<div class="hint">点卡片可翻回正面</div>'
+              : '<div class="word">' + escapeHtml(c.content) + '</div>'
+                + (c.ipa ? '<div class="ipa">' + escapeHtml(c.ipa) + '</div>' : '')
+                + '<div style="display:flex;gap:8px;justify-content:center;margin-top:14px">'
+                +   '<button class="speak" id="l-play">🔊 ' + (sample ? "听 " + escapeHtml(sample) : "听发音") + '</button>'
+                +   '<button class="speak" id="l-chunk">拆词</button>'
+                + '</div>'
+                + '<div class="hint">先自己想中文，再点卡片看答案</div>')
+        + '</div>'
+        + '<div style="padding:0 18px 18px"><div class="grades two">'
+        +   '<button class="grade g1" id="l-no">还是不行<small>留在池里</small></button>'
+        +   '<button class="grade g3" id="l-yes">这次认得了<small>移出池子</small></button>'
+        + '</div></div></div></div>';
+      $("#flash").onclick = function(e){ if(e.target.closest(".speak")) return; st.flipped = !st.flipped; paintLeech(); };
+      $("#l-play").onclick = function(e){ e.stopPropagation(); speak(target); };
+      $("#l-chunk").onclick = function(e){ e.stopPropagation(); speakChunk(c.example || c.content); };
+      $("#l-no").onclick = function(){ nextLeech(); };
+      $("#l-yes").onclick = function(){ clearLeech(c); };
+      return;
+    }
+    var rows = st.cards.map(function(c, i){
+      return '<div class="leech-row">'
+        + '<div class="lmain">'
+        +   '<div class="len">' + escapeHtml(c.content)
+        +     '<span class="tag leech">忘了 ' + c.lapses + ' 次</span>'
+        +     '<span class="tag ' + (TYPE_CLASS[c.type] || "") + '">' + escapeHtml(c.type || "卡片") + '</span>'
+        +   '</div>'
+        +   '<div class="lcn">' + escapeHtml(c.meaning) + (c.ipa ? " · " + escapeHtml(c.ipa) : "") + '</div>'
+        + '</div>'
+        + '<button class="btn sm" data-drill="' + i + '">单独练</button>'
+        + '</div>';
+    }).join("");
+    view.innerHTML = '<div class="panel">'
+      + '<h2><span class="dot"></span>弱项池 · ' + st.cards.length + ' 张</h2>'
+      + '<div class="muted" style="font-size:12.5px;line-height:1.8;margin-bottom:10px">这些卡反复忘，说明不是「没复习」，而是「没记住」。单独练只做认读：看英文想中文，认得就移出池子，不认得就留着。这时候先别再加新卡。</div>'
+      + rows
+      + '</div>';
+    $$("[data-drill]").forEach(function(b){
+      b.onclick = function(){
+        st.idx = Number(b.getAttribute("data-drill"));
+        st.mode = "drill";
+        st.flipped = false;
+        paintLeech();
+      };
+    });
+  }
+
+  function nextLeech(){
+    var st = state.leech;
+    st.idx += 1;
+    st.flipped = false;
+    if(st.idx >= st.cards.length){
+      st.mode = "list";
+      toast("这一轮练完了，没记住的还留在池里，明天继续");
+    }
+    paintLeech();
+  }
+
+  async function clearLeech(c){
+    var st = state.leech;
+    try{
+      await call("update_card", {recordId: c.id, level: 1, lapses: 0, due: addDaysKey(TODAY, 1)});
+      toast("移出弱项池，明天再复习一次");
+    }catch(e){
+      toast("没保存上，稍后重试");
+    }
+    st.cards = st.cards.filter(function(x){ return x.id !== c.id; });
+    st.cleared += 1;
+    st.flipped = false;
+    if(st.idx >= st.cards.length) st.mode = "list";
+    paintLeech();
+    loadDash().catch(function(){});
+  }
+
+  /* ---------------- 对话演练 ---------------- */
+  function dlgDoneToday(){ return store("enwb.dlg." + TODAY) || []; }
+  function dlgTotalMap(){ return store("enwb.dlgTotal") || {}; }
+  function quizToday(){ return store("enwb.quiz." + TODAY) || null; }
+
+  function dlgById(id){
+    for(var i = 0; i < DIALOGUES.length; i++){ if(DIALOGUES[i].id === id) return DIALOGUES[i]; }
+    return null;
+  }
+
+  function markDlgDone(id){
+    var arr = dlgDoneToday();
+    if(arr.indexOf(id) < 0) arr.push(id);
+    store("enwb.dlg." + TODAY, arr);
+    var total = dlgTotalMap();
+    total[id] = (total[id] || 0) + 1;
+    store("enwb.dlgTotal", total);
+  }
+
+  function recommendDialog(){
+    var done = dlgDoneToday();
+    var left = DIALOGUES.filter(function(d){ return done.indexOf(d.id) < 0; });
+    var pool = left.length ? left : DIALOGUES;
+    var dayIdx = (state.dash && state.dash.dayIndex) || 1;
+    return pool[(dayIdx - 1) % pool.length];
+  }
+
+  function startDialog(id){
+    state.dialog = {id:id, mode:"read", role:"B", idx:0, reveal:false};
+    state.view = "dialog";
+    $$(".tab").forEach(function(t){ t.classList.toggle("on", t.getAttribute("data-view") === "dialog"); });
+    renderDialogScene();
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+
+  function renderDialog(){
+    var done = dlgDoneToday();
+    var total = dlgTotalMap();
+    var cards = DIALOGUES.map(function(d){
+      var isDone = done.indexOf(d.id) >= 0;
+      var times = total[d.id] || 0;
+      return '<div class="dlg-card" data-dlg="' + d.id + '">'
+        + '<div class="dt">' + escapeHtml(d.title) + (isDone ? '<span class="tag t2">今天练过</span>' : '') + '</div>'
+        + '<div class="ds">' + escapeHtml(d.scene) + '</div>'
+        + '<div class="dm">' + escapeHtml(d.roles.A) + ' × ' + escapeHtml(d.roles.B) + ' · ' + d.lines.length + ' 句'
+        +   (times ? " · 累计 " + times + " 遍" : "") + '</div>'
+        + '</div>';
+    }).join("");
+    $("#view").innerHTML = '<div class="panel">'
+      + '<h2><span class="dot"></span>场景对话演练</h2>'
+      + '<div class="muted" style="font-size:12.5px;line-height:1.8;margin-bottom:14px">先「跟读」把句子念顺，再「角色扮演」：对方说一句，你只说你自己那句，中文提示在、英文盖住。能撑住场面比说得完美重要。</div>'
+      + '<div class="dlg-grid">' + cards + '</div>'
+      + '<div class="divider"></div>'
+      + '<div class="muted" style="font-size:12px">今天已完成 ' + done.length + ' 段，会记进打卡的「对话练习」。</div>'
+      + '</div>';
+    $$("[data-dlg]").forEach(function(el){
+      el.onclick = function(){ startDialog(el.getAttribute("data-dlg")); };
+    });
+  }
+
+  function renderDialogScene(){
+    var d = dlgById(state.dialog.id);
+    if(!d){ renderDialog(); return; }
+    var st = state.dialog;
+    var head = '<div class="flash-wrap">'
+      + '<div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;flex-wrap:wrap">'
+      +   '<button class="btn sm" id="d-back">← 对话列表</button>'
+      +   '<div class="modeseg" style="margin-left:auto">'
+      +     '<button data-mode="read" class="' + (st.mode === "read" ? "on" : "") + '">跟读</button>'
+      +     '<button data-mode="play" class="' + (st.mode === "play" ? "on" : "") + '">角色扮演</button>'
+      +   '</div>'
+      + '</div>'
+      + '<div class="panel">'
+      +   '<h2><span class="dot"></span>' + escapeHtml(d.title) + '</h2>'
+      +   '<div class="muted" style="font-size:12.5px;line-height:1.7;margin-bottom:8px">' + escapeHtml(d.scene) + '</div>';
+    var body = "";
+    if(st.mode === "read"){
+      body = d.lines.map(function(l){
+        return '<div class="dline">'
+          + '<div class="who">' + escapeHtml(d.roles[l.w] || l.w) + '</div>'
+          + '<div class="dbody">'
+          +   '<div class="den">' + escapeHtml(l.en) + '</div>'
+          +   '<div class="dcn">' + escapeHtml(l.cn) + '</div>'
+          +   '<div class="dbtns">'
+          +     '<button class="btn sm" data-speak="' + escapeHtml(l.en) + '">朗读</button>'
+          +     '<button class="btn sm" data-chunk="' + escapeHtml(l.en) + '">拆词</button>'
+          +     '<button class="btn sm" data-rec="' + escapeHtml(l.en) + '">跟读</button>'
+          +   '</div>'
+          + '</div></div>';
+      }).join("")
+      + '<div class="divider"></div>'
+      + '<div style="display:flex;gap:9px;flex-wrap:wrap">'
+      +   '<button class="btn primary" id="d-play-mode">演一遍（角色扮演）</button>'
+      +   '<button class="btn" id="d-finish">这一段练完了</button>'
+      + '</div>';
+    } else {
+      var line = d.lines[st.idx];
+      if(!line){
+        body = '<div class="muted">这一段已经走完了</div>';
+      } else {
+        var mine = line.w === st.role;
+        var roleHtml = '<div style="display:flex;gap:8px;align-items:center;margin:6px 0 12px;flex-wrap:wrap">'
+          + '<span class="muted" style="font-size:12px">你演</span>'
+          + '<button class="fchip' + (st.role === "A" ? " on" : "") + '" data-role="A">' + escapeHtml(d.roles.A) + '</button>'
+          + '<button class="fchip' + (st.role === "B" ? " on" : "") + '" data-role="B">' + escapeHtml(d.roles.B) + '</button>'
+          + '<span class="muted" style="font-size:11.5px">第 ' + (st.idx + 1) + ' / ' + d.lines.length + ' 句</span>'
+          + '</div>';
+        if(mine){
+          body = roleHtml
+            + '<div class="beatbox">'
+            +   '<div class="muted" style="font-size:12px;margin-bottom:4px">该你说这句，先别看英文</div>'
+            +   '<div style="font-size:15px;font-weight:600;margin-bottom:10px">' + escapeHtml(line.cn) + '</div>'
+            +   (st.reveal
+                  ? '<div style="font-size:17px;font-weight:600;color:var(--brand)">' + escapeHtml(line.en) + '</div>'
+                    + '<div class="dbtns" style="justify-content:center;margin-top:12px">'
+                    +   '<button class="btn sm" data-speak="' + escapeHtml(line.en) + '">朗读</button>'
+                    +   '<button class="btn sm" data-chunk="' + escapeHtml(line.en) + '">拆词</button>'
+                    +   '<button class="btn sm" data-rec="' + escapeHtml(line.en) + '">跟读</button>'
+                    + '</div>'
+                    + '<div style="margin-top:12px"><button class="btn primary" id="d-next">下一句</button></div>'
+                  : '<button class="btn primary" id="d-reveal">说完了，看答案</button>'
+                    + '<div style="margin-top:9px"><button class="btn sm" id="d-beat">不会说？跟读节拍带你一遍</button></div>')
+            + '</div>';
+        } else {
+          body = roleHtml
+            + '<div class="dline" style="border-bottom:0">'
+            +   '<div class="who">对方</div>'
+            +   '<div class="dbody">'
+            +     '<div class="den">' + escapeHtml(line.en) + '</div>'
+            +     '<div class="dcn">' + escapeHtml(line.cn) + '</div>'
+            +     '<div class="dbtns">'
+            +       '<button class="btn sm" data-speak="' + escapeHtml(line.en) + '">朗读</button>'
+            +       '<button class="btn sm" data-chunk="' + escapeHtml(line.en) + '">拆词</button>'
+            +     '</div>'
+            +   '</div></div>'
+            + '<div style="margin-top:12px"><button class="btn primary" id="d-next">轮到我说 →</button></div>';
+        }
+      }
+    }
+    $("#view").innerHTML = head + body + '</div></div>';
+    $("#d-back").onclick = function(){ switchView("dialog"); };
+    $$("[data-mode]").forEach(function(b){
+      b.onclick = function(){
+        st.mode = b.getAttribute("data-mode");
+        st.idx = 0;
+        st.reveal = false;
+        renderDialogScene();
+      };
+    });
+    $$("[data-speak]").forEach(function(b){
+      b.onclick = function(){ speak(b.getAttribute("data-speak")); };
+    });
+    $$("[data-chunk]").forEach(function(b){
+      b.onclick = function(){ speakChunk(b.getAttribute("data-chunk")); };
+    });
+    bindRecButtons();
+    $$("[data-role]").forEach(function(b){
+      b.onclick = function(){
+        st.role = b.getAttribute("data-role");
+        st.idx = 0;
+        st.reveal = false;
+        renderDialogScene();
+      };
+    });
+    var pm = $("#d-play-mode");
+    if(pm) pm.onclick = function(){ st.mode = "play"; st.idx = 0; st.reveal = false; renderDialogScene(); };
+    var fin = $("#d-finish");
+    if(fin) fin.onclick = finishDlg;
+    var rv = $("#d-reveal");
+    if(rv) rv.onclick = function(){ st.reveal = true; renderDialogScene(); };
+    var bt = $("#d-beat");
+    if(bt) bt.onclick = function(){ shadowRead(d.lines[st.idx].en, "先用节拍跟你念一遍"); };
+    var nx = $("#d-next");
+    if(nx) nx.onclick = function(){
+      st.idx += 1;
+      st.reveal = false;
+      if(st.idx >= d.lines.length){ finishDlg(); return; }
+      renderDialogScene();
+    };
+  }
+
+  function finishDlg(){
+    var d = dlgById(state.dialog.id);
+    if(!d) return;
+    var first = dlgDoneToday().indexOf(d.id) < 0;
+    markDlgDone(d.id);
+    $("#view").innerHTML = '<div class="flash-wrap"><div class="panel" style="text-align:center;padding:36px 22px">'
+      + '<div style="font-size:32px;margin-bottom:8px">🎬</div>'
+      + '<div style="font-size:16px;font-weight:650">「' + escapeHtml(d.title) + '」演完了</div>'
+      + '<div class="muted" style="font-size:13px;margin:8px 0 18px;line-height:1.8">'
+      +   (first ? "已经记进今天的「对话练习」。" : "今天这一段又练了一遍。")
+      +   '明天换个角色再来一次，两种角色都演过才算真的会。</div>'
+      + '<div style="display:flex;gap:9px;justify-content:center;flex-wrap:wrap">'
+      +   '<button class="btn" id="d-again">换个角色再演</button>'
+      +   '<button class="btn primary" id="d-to-today">回今日打卡</button>'
+      + '</div></div></div>';
+    $("#d-again").onclick = function(){
+      state.dialog.role = state.dialog.role === "A" ? "B" : "A";
+      state.dialog.mode = "play";
+      state.dialog.idx = 0;
+      state.dialog.reveal = false;
+      renderDialogScene();
+    };
+    $("#d-to-today").onclick = function(){ switchView("today"); };
+    paintOffline();
+  }
+
+  /* ---------------- router ---------------- */
+  function switchView(v){
+    state.view = v;
+    var tabOf = (v === "quiz" || v === "leech") ? "review" : (v === "phonics" ? "guide" : v);
+    $$(".tab").forEach(function(t){ t.classList.toggle("on", t.getAttribute("data-view") === tabOf); });
+    if(TIMER.h && v !== "today"){ clearInterval(TIMER.h); TIMER.h = null; }
+    renderView();
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+
+  function renderView(){
+    var v = state.view;
+    if(v === "today") renderToday();
+    else if(v === "review") renderReview();
+    else if(v === "deck") renderDeck();
+    else if(v === "progress") renderProgress();
+    else if(v === "guide") renderGuide();
+    else if(v === "phonics") renderPhonics();
+    else if(v === "quiz") renderQuiz();
+    else if(v === "leech") renderLeech();
+    else if(v === "dialog") renderDialog();
+  }
+
+  $$(".tab").forEach(function(t){
+    t.addEventListener("click", function(){ switchView(t.getAttribute("data-view")); });
+  });
+
+  function registerSW(){
+    try{
+      if("serviceWorker" in navigator && location.protocol === "https:"){
+        navigator.serviceWorker.register("sw.js").catch(function(){});
+      }
+    }catch(e){}
+  }
+
+  async function boot(){
+    bindAudioBar();
+    registerSW();
+    paintOffline();
+    if(!wb() && !store(CACHE_KEYS.dash)){
+      $("#banner").innerHTML = '<div class="banner">当前环境没有连接工作台能力，请在资料库中直接打开这个页面，数据才能正常读写。</div>';
+    }
+    var view = $("#view");
+    view.innerHTML = '<div class="skel" style="height:140px;margin-bottom:16px"></div>'
+      + '<div class="grid2"><div class="skel" style="height:280px"></div><div class="skel" style="height:280px"></div></div>';
+    try{
+      if(wb() && pendingList().length){ await flushPending(); }
+      await loadDash();
+      switchView("today");
+    }catch(e){
+      view.innerHTML = '<div class="empty"><div class="ic">⚠️</div>'
+        + escapeHtml(e.message || "数据加载失败")
+        + '<div style="margin-top:14px"><button class="btn" id="retry">重新加载</button></div></div>';
+      var r = $("#retry");
+      if(r) r.onclick = boot;
+    }
+    if("speechSynthesis" in window){
+      window.speechSynthesis.getVoices();
+      window.speechSynthesis.onvoiceschanged = function(){};
+    }
+  }
+
+  boot();
+})();
+</script>
+</body>
+</html>

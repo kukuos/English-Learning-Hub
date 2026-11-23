@@ -1,0 +1,13 @@
+{
+  "name": "零基础英语学习工作台",
+  "short_name": "英语 30 天",
+  "description": "30 天从发音到开口，每天 20 分钟",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f6fa",
+  "theme_color": "#4f46e5",
+  "lang": "zh-CN",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
